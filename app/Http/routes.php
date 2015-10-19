@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 				['as' => 'home', 'uses' => 'PagesController@home']);
+Route::get('pokemon', 			['as' => 'pokemon', 'uses' => 'PagesController@pokemon']);
+Route::get('search', 			['as' => 'search', 'uses' => 'PagesController@search']);
+
+// Profile routes...
+Route::get('profile/show/{id}',		['as' => 'profile.show',    'uses' => 'ProfileController@show']);
+Route::get('profile/edit',			['as' => 'profile.edit',    'uses' => 'ProfileController@edit']);
+Route::put('profile/edit',			['as' => 'profile.update',  'uses' => 'ProfileController@update']);
+
+// Authentication routes...
+Route::get('auth/login',			['as' => 'auth.login',      'uses' => 'Auth\AuthController@getLogin']);
+Route::post('auth/login',			['as' => 'auth.accept',     'uses' => 'Auth\AuthController@postLogin']);
+Route::get('auth/logout',			['as' => 'auth.logout',     'uses' => 'Auth\AuthController@getLogout']);
+
+// Registration routes...
+Route::get('auth/register',			['as' => 'auth.register',   'uses' => 'Auth\AuthController@getRegister']);
+Route::post('auth/register',		['as' => 'auth.store',     'uses' => 'Auth\AuthController@postRegister']);

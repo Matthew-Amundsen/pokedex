@@ -19,6 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->rememberToken();
             $table->timestamps();
+            $table->enum('role', ['user', 'admin']);
+            $table->smallInteger('team_slot_1')->unsigned();
+            $table->smallInteger('team_slot_2')->unsigned();
+            $table->smallInteger('team_slot_3')->unsigned();
+            $table->smallInteger('team_slot_4')->unsigned();
+            $table->smallInteger('team_slot_5')->unsigned();
+            $table->smallInteger('team_slot_6')->unsigned();
         });
     }
 
