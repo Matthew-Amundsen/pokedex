@@ -12,10 +12,6 @@ class PagesController extends Controller
 		return view('home');
 	}
 
-	function pokemon() {
-		return view('pokemon');
-	}
-
 	function search() {
 		return view('search');
 	}

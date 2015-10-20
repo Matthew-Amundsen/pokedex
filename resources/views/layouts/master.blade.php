@@ -44,7 +44,7 @@
 
 				<ul class="nav navbar-nav">
 					<li class="{{ Route::currentRouteName() === 'home' ? 'active' : null }}"><a href="{{ route('home') }}">Home</a></li>
-					<li class="{{ Route::currentRouteName() === 'pokemon' ? 'active' : null }}"><a href="{{ route('pokemon') }}">Pokemon</a></li>
+					<li class="{{ Route::currentRouteName() === 'pokemon.index' ? 'active' : null }}"><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
 					<li class="{{ Route::currentRouteName() === 'search' ? 'active' : null }}"><a href="{{ route('search') }}">Search</a></li>
 				</ul>
 

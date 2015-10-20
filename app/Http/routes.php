@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 				['as' => 'home', 'uses' => 'PagesController@home']);
-Route::get('pokemon', 			['as' => 'pokemon', 'uses' => 'PagesController@pokemon']);
 Route::get('search', 			['as' => 'search', 'uses' => 'PagesController@search']);
+
+Route::resource('pokemon', 'PokemonController');
 
 // Profile routes...
 Route::get('profile/show/{id}',		['as' => 'profile.show',    'uses' => 'ProfileController@show']);
