@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pokemon;
+use App\Comment;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class CommentsController extends Controller
 {
-    function __construct()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $this->middleware('auth');
+        //
     }
 
     /**
@@ -29,10 +36,28 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $pokemon_id)
     {
-        $user = User::findOrFail(1);
-        $mission = Mission::findOrFail($mission_id);
+        $user = $request->user();
+        $pokemon = Pokemon::findOrFail($pokemon_id);
+
+        $comment = new Comment($request->all());
+        $comment->user()->associate($request->user());
+        $comment->pokemon_id = $pokemon_id;
+        $comment->save();
+
+        return redirect()->route('pokemon.show', $pokemon_id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**

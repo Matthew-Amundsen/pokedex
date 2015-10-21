@@ -13,12 +13,6 @@
 		<link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-		<style>
-			body {
-				padding-top: 70px;
-				padding-bottom: 20px;
-			}
-		</style>
 		<link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 

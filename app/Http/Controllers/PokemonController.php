@@ -33,6 +33,8 @@ class PokemonController extends Controller
 		$pokemon = Pokemon::findOrFail($id);
 		$comments = Comment::where('pokemon_id', $id)->get();
 			
-		return view('pokemon.show', compact('pokemon', 'comments'));
+		$newComment = new Comment;
+			
+		return view('pokemon.show', compact('pokemon', 'comments', 'newComment'));
 	}
 }

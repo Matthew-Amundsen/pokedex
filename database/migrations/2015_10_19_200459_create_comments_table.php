@@ -18,6 +18,9 @@ class CreateCommentsTable extends Migration
             $table->integer('pokemon_id')->unsigned();
             $table->text('comment', 2500);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('pokemon_id')->references('id')->on('pokemon')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
