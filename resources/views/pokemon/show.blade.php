@@ -9,22 +9,28 @@
 		<h2>{{ $pokemon->name }}</h2>
 		<img src="..\images\pokemon\00{{ $pokemon->id }}.png">
 		@foreach ($comments as $comment)
-			<p>{{ $comment->comment }} - Posted by: {{ $comment->user_id }}</p>
+			<p>
+				{{ $comment->comment }} - Posted by: {{ $comment->user->name }} 
+				<button>Edit</button>
+				<button>Delete</button>
+			</p>
 		@endforeach
 	  </div>
 	</div>
 
-	<h4>Comment on {{ $pokemon->name }}</h4>
-	
-	{!! Form::open(['route' => ['pokemon.comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
-		<div class="form-group">
-			{!! Form::label('Comment:') !!}
-			{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
-		</div>
+	<div class="container">
+		<h4>Comment on {{ $pokemon->name }}</h4>
+		
+		{!! Form::open(['route' => ['pokemon.comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
+			<div class="form-group">
+				{!! Form::label('Comment:') !!}
+				{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
+			</div>
 
-		<div class="form-group">
-			{!! Form::submit('Add Comment', ['class' => 'btn btn-primary form-control']) !!}
-		</div>
-	{!! Form::close() !!}
+			<div class="form-group">
+				{!! Form::submit('Add Comment', ['class' => 'btn btn-primary form-control']) !!}
+			</div>
+		{!! Form::close() !!}
+	</div>
 
 @endsection
