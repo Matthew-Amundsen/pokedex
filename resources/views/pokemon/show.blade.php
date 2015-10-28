@@ -11,8 +11,11 @@
 		@foreach ($comments as $comment)
 			<p>
 				{{ $comment->comment }} - Posted by: {{ $comment->user->name }} 
-				<button>Edit</button>
-				<button>Delete</button>
+				<a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning">Edit Comment</a>
+
+				{!! Form::open(['action' => ['CommentsController@destroy', $comment->id], 'method' => 'delete']) !!}
+					{!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+				{!! Form::close() !!}
 			</p>
 		@endforeach
 	  </div>
@@ -21,8 +24,9 @@
 	<div class="container">
 		<h4>Comment on {{ $pokemon->name }}</h4>
 		
-		{!! Form::open(['route' => ['pokemon.comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
+		{!! Form::open(['route' => ['comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
 			<div class="form-group">
+				
 				{!! Form::label('Comment:') !!}
 				{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
 			</div>

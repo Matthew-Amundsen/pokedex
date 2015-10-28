@@ -36,17 +36,15 @@ class CommentsController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request, $pokemon_id)
+	public function store(Request $request)
 	{
 		$user = $request->user();
-		$pokemon = Pokemon::findOrFail($pokemon_id);
-
 		$comment = new Comment($request->all());
 		$comment->user()->associate($request->user());
-		$comment->pokemon_id = $pokemon_id;
+		$comment->pokemon_id = 1;
 		$comment->save();
 
-		return redirect()->route('pokemon.show', $pokemon_id);
+		return redirect()->route('pokemon.index');
 	}
 
 	/**
@@ -66,9 +64,9 @@ class CommentsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($comment_id, $id)
+	public function edit($id)
 	{
-		$comment = Attempt::findOrFail($id);
+		$comment = Comment::findOrFail($id);
 
 		return view('comment.edit', compact('comment'));
 	}
@@ -93,6 +91,9 @@ class CommentsController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		$comment = Comment::findOrFail($id);
+		$comment->delete();
+
+		return redirect()->route('pokemon.index');
 	}
 }

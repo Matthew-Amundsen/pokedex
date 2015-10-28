@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Auth;
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProfileRequest;
 
 class ProfileController extends Controller
 {
 
-    function __construct()
+    public function __construct()
     {
         $this->middleware('auth', ['except' => ['show']]);
     }
@@ -23,20 +27,12 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        $attempts = DB::select('SELECT users.*, mission_id 
-            AS mission_id, status as status, title as mission_title 
-            FROM users 
-            INNER JOIN attempts ON users.id = user_id 
-            INNER JOIN missions ON missions.id = mission_id 
-            WHERE users.id = :user_id', ['user_id' => $user->id]);
-
-            return view('profile.show', compact('user', 'attempts', 'mission'));
+        return view('profile.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return Response
      */
     public function edit()
@@ -50,7 +46,6 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
      * @return Response
      */
     public function update(UpdateProfileRequest $request)
