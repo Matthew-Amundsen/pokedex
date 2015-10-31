@@ -80,7 +80,16 @@ class CommentsController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		//
+		$user = $request->user();
+		$comment = new Comment($request->all());
+		$comment->user()->associate($request->user());
+		$comment->pokemon_id = 1;
+		$comment->id = 19;
+		$comment->save();
+
+		return redirect()->route('pokemon.index');
+
+		//Cant copy over an existing comments id.
 	}
 
 	/**
