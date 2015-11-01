@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="jumbotron">
-		<div class="container">
+		<div class="container content-container">
 			{!! Form::open(['action' => ['CommentsController@update', $comment->id], 'class' => 'form-horizontal', 'method' => 'PUT']) !!}
 				<div class="form-group">
 					
@@ -17,20 +17,3 @@
 		</div>
 	</div>
 @endsection
-
-
-{!! Form::open(['action' => ['CommentsController@update', $comment->id], 'class' => 'form-horizontal', 'method' => 'PUT']) !!}
-	{!! Form::submit('Update comment', ['class'=>'btn btn-warning']) !!}
-{!! Form::close() !!}
-
-{!! Form::open(['route' => ['comments.update'], 'class' => 'form-horizontal', 'method' => 'PUT']) !!}
-	<div class="form-group">
-		
-		{!! Form::label('Comment:') !!}
-		{!! Form::textarea('comment', $comment->comment, ['class' => 'form-control']) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::submit('Edit Comment', ['class' => 'btn btn-primary form-control']) !!}
-	</div>
-{!! Form::close() !!}

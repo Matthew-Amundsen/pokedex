@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 
 class CommentsController extends Controller
 {
+	function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -44,7 +49,7 @@ class CommentsController extends Controller
 		$comment->pokemon_id = 1;
 		$comment->save();
 
-		return redirect()->route('pokemon.index');
+		return redirect()->route('pokemon.show', $comment->pokemon_id);
 	}
 
 	/**
@@ -81,13 +86,11 @@ class CommentsController extends Controller
 	public function update(Request $request, $id)
 	{
 		$user = $request->user();
-		$comment = new Comment($request->all());
-		$comment->user()->associate($request->user());
-		$comment->pokemon_id = 1;
-		$comment->id = 19;
+		$comment = Comment::findOrFail($id);
+		$comment->fill($request->all());
 		$comment->save();
 
-		return redirect()->route('pokemon.index');
+		return redirect()->route('pokemon.show', $comment->pokemon_id);
 
 		//Cant copy over an existing comments id.
 	}
@@ -101,8 +104,9 @@ class CommentsController extends Controller
 	public function destroy($id)
 	{
 		$comment = Comment::findOrFail($id);
+		$pokemon_id = $comment->pokemon_id;
 		$comment->delete();
 
-		return redirect()->route('pokemon.index');
+		return redirect()->route('pokemon.show', $pokemon_id);
 	}
 }

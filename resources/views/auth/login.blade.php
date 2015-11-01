@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div class="container">
+	<div class="container content-container">
 
 		{!! Form::open(['route' => 'auth.accept', 'class' => 'form-signin']) !!}
 

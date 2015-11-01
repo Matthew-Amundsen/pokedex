@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div class="container">
+	<div class="container content-container">
 		<h1>Edit Profile</h1>
 
 		{!! Form::open(['route' => ['profile.update'], 'class' => 'form-horizontal form-edit', 'method' => 'PUT']) !!}

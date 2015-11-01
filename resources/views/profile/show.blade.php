@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="container">
+	<div class="container content-container">
 		<div class="text-center heading">
 			<h1>{{ $user->name }}</h1> 
 			@if(Auth::check() && ($user->id === Auth::user()->id))

@@ -5,12 +5,15 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
 	  <div class="container">
-		<ul>
+		<div class="row">
 			@foreach($pokemon as $pokemon)
-				<li>
-					<h3><a href="{{ route('pokemon.show', $pokemon->id) }}">{{ $pokemon->name}}</a></h3>
-				</li>
+				<a href="{{ route('pokemon.show', $pokemon->id) }}">
+					<div class="col-sm-6 col-md-4 text-center">
+						<img src="..\images\pokemon\{{ $pokemon->id }}.png" width="200">
+						<h3>{{ $pokemon->id}} {{ $pokemon->name}}</h3>
+					</div>
+				</a>
 			@endforeach
-		</ul>
+		</div>
 	</div>
 @endsection
