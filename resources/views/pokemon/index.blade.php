@@ -3,8 +3,8 @@
 @section('content')
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
-	<div class="jumbotron">
-	  <div class="container">
+
+	<div class="container content-container">
 		<div class="row">
 			@foreach($pokemon as $pokemon)
 				<a href="{{ route('pokemon.show', $pokemon->id) }}">
@@ -15,5 +15,5 @@
 				</a>
 			@endforeach
 		</div>
-	</div>
+
 @endsection
