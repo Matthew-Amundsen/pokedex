@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\User;
+use App\Pokemon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileRequest;
