@@ -37,4 +37,12 @@ class PokemonController extends Controller
 			
 		return view('pokemon.show', compact('pokemon', 'comments', 'newComment'));
 	}
+
+	public function search()
+	{
+		$pokemon = Pokemon::all();
+		$result = Pokemon::search('char')->get(); 
+		
+		return view('pokemon.search', compact('pokemon', 'result'));
+	}
 }

@@ -39,7 +39,12 @@
 					<ul class="nav navbar-nav">
 						<li class="{{ Route::currentRouteName() === 'home' ? 'active' : null }}"><a href="{{ route('home') }}">Home</a></li>
 						<li class="{{ Route::currentRouteName() === 'pokemon.index' ? 'active' : null }}"><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
-						<li class="{{ Route::currentRouteName() === 'search' ? 'active' : null }}"><a href="{{ route('search') }}">Search</a></li>
+						<li>
+							{!! Form::open() !!}
+							{!! Form::text('keyword', Input::old('Search'),  array('placeholder' => 'Search')) !!}
+							{!! Form::submit('Search') !!}
+							{!! Form::close() !!}
+						</li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">

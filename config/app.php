@@ -149,6 +149,7 @@ return [
         * Added Service Providers...
         */
         Collective\Html\HtmlServiceProvider::class,
+        Sofa\Eloquence\ServiceProvider::class,
 
     ],
 

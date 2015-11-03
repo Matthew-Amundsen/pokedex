@@ -12,9 +12,10 @@
 */
 
 Route::get('/', 				['as' => 'home', 'uses' => 'PagesController@home']);
-Route::get('search', 			['as' => 'search', 'uses' => 'PagesController@search']);
 
-// Route::resource('pokemon', 		'PokemonController', ['only' => ['index', 'show']]);
+// Search routes...
+Route::get('search',			['as' => 'pokemon.search', 'uses' => 'PokemonController@search']);
+
 Route::resource('comments', 'CommentsController');
 
 // Pokemon routes...
