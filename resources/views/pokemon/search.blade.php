@@ -11,7 +11,7 @@
 				<a href="{{ route('pokemon.show', $pokemon->id) }}">
 					<div class="col-sm-6 col-md-4 text-center">
 						<img src="..\images\pokemon\{{ $pokemon->id }}.png" width="200">
-						<h3>{{ $pokemon->id}} {{ $pokemon->name}}</h3>
+						<h3>{{ $pokemon->id}} \ {{ $pokemon->name}}</h3>
 					</div>
 				</a>
 			@endforeach

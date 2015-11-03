@@ -40,8 +40,8 @@
 						<li class="{{ Route::currentRouteName() === 'home' ? 'active' : null }}"><a href="{{ route('home') }}">Home</a></li>
 						<li class="{{ Route::currentRouteName() === 'pokemon.index' ? 'active' : null }}"><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
 						<li>
-							{!! Form::open() !!}
-							{!! Form::text('keyword', Input::old('Search'),  array('placeholder' => 'Search')) !!}
+							{!! Form::open(['route' => 'search', 'method' => 'get']) !!}
+							{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
 							{!! Form::submit('Search') !!}
 							{!! Form::close() !!}
 						</li>
