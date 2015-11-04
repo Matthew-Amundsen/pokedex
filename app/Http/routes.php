@@ -35,3 +35,7 @@ Route::get('auth/logout',			['as' => 'auth.logout',     'uses' => 'Auth\AuthCont
 // Registration routes...
 Route::get('auth/register',			['as' => 'auth.register',   'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register',		['as' => 'auth.store',     'uses' => 'Auth\AuthController@postRegister']);
+
+// Team Routes
+Route::post('profile/addPokemon',		['as' => 'profile.addPokemon', 'uses' => 'ProfileController@addPokemon']);
+Route::post('profile/removePokemon',	['as' => 'profile.removePokemon', 'uses' => 'ProfileController@removePokemon']);

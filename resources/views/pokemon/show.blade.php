@@ -8,6 +8,43 @@
 				<h1>Pokemon</h1>
 				<h2>{{ $pokemon->name }}</h2>
 				<img src="..\images\pokemon\{{ $pokemon->id }}.png">
+
+				{{-- Button to add Pokemon to slot 1 --}}
+				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+					<?php $slot_number = 1 ?>
+					@include('partials.slot-form')
+				{!! Form::close() !!}
+
+				{{-- Button to add Pokemon to slot 2 --}}
+				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+					<?php $slot_number = 2 ?>
+					@include('partials.slot-form')
+				{!! Form::close() !!}
+
+				{{-- Button to add Pokemon to slot 3 --}}
+				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+					<?php $slot_number = 3 ?>
+					@include('partials.slot-form')
+				{!! Form::close() !!}
+
+				{{-- Button to add Pokemon to slot 4 --}}
+				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+					<?php $slot_number = 4 ?>
+					@include('partials.slot-form')
+				{!! Form::close() !!}
+
+				{{-- Button to add Pokemon to slot 5 --}}
+				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+					<?php $slot_number = 5 ?>
+					@include('partials.slot-form')
+				{!! Form::close() !!}
+
+				{{-- Button to add Pokemon to slot 6 --}}
+				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+					<?php $slot_number = 6 ?>
+					@include('partials.slot-form')
+				{!! Form::close() !!}
+
 				@foreach ($comments as $comment)
 					<p>
 						{{ $comment->comment }} - Posted by: {{ $comment->user->name }}

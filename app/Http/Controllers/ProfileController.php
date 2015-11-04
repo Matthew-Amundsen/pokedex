@@ -58,4 +58,15 @@ class ProfileController extends Controller
 
         return redirect()->route('home')->with('status.success', "Your profile has been updated.");
     }
+
+    public function addPokemon(Request $request)
+    {
+        $user = Auth::user()->id;
+        $slot = $request->input('slot');
+        $pokemon = $request->input('id');
+
+        User::addPokemon($user, $slot, $pokemon);
+        // dd($user, $slot, $pokemon);
+        return redirect()->route('home');
+    }
 }

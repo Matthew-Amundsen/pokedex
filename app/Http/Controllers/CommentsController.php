@@ -91,8 +91,6 @@ class CommentsController extends Controller
 		$comment->save();
 
 		return redirect()->route('pokemon.show', $comment->pokemon_id);
-
-		//Cant copy over an existing comments id.
 	}
 
 	/**
