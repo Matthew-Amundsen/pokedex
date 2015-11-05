@@ -8,6 +8,8 @@
 				<h1>Pokemon</h1>
 				<h2>{{ $pokemon->name }}</h2>
 				<img src="..\images\pokemon\{{ $pokemon->id }}.png">
+				<p>{{ $pokemonData->attack }}</p>
+
 
 				@if(Auth::check())
 				<?php $action = 'Add to'; ?>
