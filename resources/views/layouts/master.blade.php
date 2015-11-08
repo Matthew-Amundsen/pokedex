@@ -16,6 +16,8 @@
 		<link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
+		<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+
 		<script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
 	</head>
 	<body>
