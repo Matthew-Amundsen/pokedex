@@ -3,7 +3,7 @@
 @section('content')
 
 		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<div class="container">
+		<div class="container content-container">
 			<h1>Pokemon</h1>
 			<h2>{{ $pokemonData->name }}</h2>
 			<img src="..\images\pokemon\{{ $pokemon->id }}.png">

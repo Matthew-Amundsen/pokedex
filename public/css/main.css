@@ -1,9 +1,21 @@
 
+/* Color palette */
+
+/*
+main red - #c44330
+grey - #363636
+*/
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
+
+/* ==========================================================================
+   Register and Log In pages
+   ========================================================================== */
+
+   /* restricts the forms widths */
 .form-signin {
 	max-width: 400px;
 	padding: 15px;
@@ -15,16 +27,73 @@
 	padding: 15px;
 	margin: 0 auto;
 }
-
+	/* Gives the forms a little red star when they are invalid */
 .form-group.required .control-label:after { 
 	content:" *";
 	color:red;
 }
 
-.heading {
-		margin-bottom: 50px;
-}
+/* ==========================================================================
+   Heading / Navigation
+   ========================================================================== */
 
+	/* Creates space between the content and the floating heading */
 .content-container {
 	margin-top: 50px;
 }
+
+   /* verticaly centers the search bar */
+nav .input-group {
+	margin-top: 8px;
+}
+
+.navbar {
+	background-color: #c44330;
+}
+
+.navbar a:link {
+	color: #ffffff;
+}
+
+.navbar a:visited {
+	color: #ffffff;
+}
+
+.navbar a:hover {
+	color: #363636;
+}
+
+.navbar a:active {
+	color: #ffffff;
+}
+
+/* ==========================================================================
+   Pokemon index
+   ========================================================================== */
+
+.pokemon-index img {
+	background-color: #eeeeee;
+}
+
+h3 {
+	display: inline-block;
+}
+
+.pokemon-number {
+	width: 60px;
+	color: #ffffff;
+	background-color: #363636;
+}
+
+.pokemon-name {
+	width: 180px;
+	color: #ffffff;
+	position: relative;
+	background-color: #575757;
+	transform: skew(-20deg);
+}
+
+.pokemon-name p {
+	transform: skew(20deg);
+}
+

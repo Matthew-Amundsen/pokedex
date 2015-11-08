@@ -24,7 +24,7 @@
 		<!--[if lt IE 8]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<nav class="navbar navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,13 +41,18 @@
 					<ul class="nav navbar-nav">
 						<li class="{{ Route::currentRouteName() === 'home' ? 'active' : null }}"><a href="{{ route('home') }}">Home</a></li>
 						<li class="{{ Route::currentRouteName() === 'pokemon.index' ? 'active' : null }}"><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
-						<li>
-							{!! Form::open(['route' => 'search', 'method' => 'get']) !!}
-							{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
-							{!! Form::submit('Search') !!}
-							{!! Form::close() !!}
-						</li>
 					</ul>
+
+					{!! Form::open(['route' => 'search', 'method' => 'get']) !!}
+						<div class="col-xs-3">
+							<div class="input-group">
+								{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
+								<span class="input-group-btn">
+								{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-default', 'type' => 'submit']) !!}
+								</span>
+							</div>
+						</div>
+					{!! Form::close() !!}
 
 					<ul class="nav navbar-nav navbar-right">
 						@if(Auth::check())
