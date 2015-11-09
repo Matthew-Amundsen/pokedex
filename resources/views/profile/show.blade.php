@@ -11,7 +11,7 @@
 		</div>
 		<div class="row text-center">
 			@for($i = 1; $i <= 6; $i += 1)
-				<?php $action = 'remove from'; $pokemon = $user->team_slot($i)->first() ?>
+				<?php $action = '<span class="glyphicon glyphicon-remove"></span>'; $pokemon = $user->team_slot($i)->first() ?>
 				@if ($pokemon)
 					<div class="col-sm-6 col-md-4 text-center">
 						<a href="{{ route('pokemon.show', $pokemon->id) }}">

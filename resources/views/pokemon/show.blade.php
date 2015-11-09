@@ -21,101 +21,113 @@
 			<p>Speed: {{$pokemonData->speed}}</p>
 			<p>National ID: {{$pokemonData->national_id}}</p>
 
-			<div>
-				<h3>Learn By Level Up</h3>
-				<table class="table table-striped">
-					<th>Name</th>
-					<th>Level</th>
+			<div class="row">
+				<div class="col-xs-2">
+					@if(Auth::check())
+					<?php $action = '<span class="glyphicon glyphicon-record"></span>'; ?>
+						<div class="row">
+							<div class="col-xs-6">
+								{{-- Button to add Pokemon to slot 1 --}}
+								{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+									<?php $slot_number = 1 ?>
+									@include('partials.slot-form')
+								{!! Form::close() !!}
+							</div>
+							<div class="col-xs-6">
+								{{-- Button to add Pokemon to slot 2 --}}
+								{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+									<?php $slot_number = 2 ?>
+									@include('partials.slot-form')
+								{!! Form::close() !!}
+							</div>
+							<div class="col-xs-6">
+								{{-- Button to add Pokemon to slot 3 --}}
+								{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+									<?php $slot_number = 3 ?>
+									@include('partials.slot-form')
+								{!! Form::close() !!}
+							</div>
+							<div class="col-xs-6">
+								{{-- Button to add Pokemon to slot 4 --}}
+								{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+									<?php $slot_number = 4 ?>
+									@include('partials.slot-form')
+								{!! Form::close() !!}
+							</div>
+							<div class="col-xs-6">
+								{{-- Button to add Pokemon to slot 5 --}}
+								{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+									<?php $slot_number = 5 ?>
+									@include('partials.slot-form')
+								{!! Form::close() !!}
+							</div>
+							<div class="col-xs-6">
+								{{-- Button to add Pokemon to slot 6 --}}
+								{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+									<?php $slot_number = 6 ?>
+									@include('partials.slot-form')
+								{!! Form::close() !!}
+							</div>
+						</div>
+					@endif
+				</div>
 
-					@foreach($pokemonData->moves as $move)
-						@if($move->learn_type === "level up" && $move->level)
-							<tr>
-								<td>{{$move->name}}</td>
-								<td>{{$move->level}}</td>
-							</tr>
-						@endif
-					@endforeach
-				</table>
+				<div class="col-xs-12">
+					<h3>Learn By Level Up</h3>
+					<table class="table table-striped">
+						<th>Name</th>
+						<th>Level</th>
 
-				<h3>Learn By Machine</h3>
-				<table class="table table-striped">
-					<th>Name</th>
+						@foreach($pokemonData->moves as $move)
+							@if($move->learn_type === "level up" && $move->level)
+								<tr>
+									<td>{{$move->name}}</td>
+									<td>{{$move->level}}</td>
+								</tr>
+							@endif
+						@endforeach
+					</table>
 
-					@foreach($pokemonData->moves as $move)
-						@if($move->learn_type === "machine")
-							<tr>
-								<td>{{$move->name}}</td>
-							</tr>
-						@endif
-					@endforeach
-				</table>
+					<h3>Learn By Machine</h3>
+					<table class="table table-striped">
+						<th>Name</th>
 
-				<h3>Learn By Tutor</h3>
-				<table class="table table-striped">
-					<th>Name</th>
-					
-					@foreach($pokemonData->moves as $move)
-						@if($move->learn_type === "tutor")
-							<tr>
-								<td>{{$move->name}}</td>
-							</tr>
-						@endif
-					@endforeach
-				</table>
+						@foreach($pokemonData->moves as $move)
+							@if($move->learn_type === "machine")
+								<tr>
+									<td>{{$move->name}}</td>
+								</tr>
+							@endif
+						@endforeach
+					</table>
 
-				<h3>Learn By Breeding</h3>
-				<table class="table table-striped">
-					<th>Name</th>
-					
-					@foreach($pokemonData->moves as $move)
-						@if($move->learn_type === "egg move")
-							<tr>
-								<td>{{$move->name}}</td>
-							</tr>
-						@endif
-					@endforeach
-				</table>
+					<h3>Learn By Tutor</h3>
+					<table class="table table-striped">
+						<th>Name</th>
+						
+						@foreach($pokemonData->moves as $move)
+							@if($move->learn_type === "tutor")
+								<tr>
+									<td>{{$move->name}}</td>
+								</tr>
+							@endif
+						@endforeach
+					</table>
+
+					<h3>Learn By Breeding</h3>
+					<table class="table table-striped">
+						<th>Name</th>
+						
+						@foreach($pokemonData->moves as $move)
+							@if($move->learn_type === "egg move")
+								<tr>
+									<td>{{$move->name}}</td>
+								</tr>
+							@endif
+						@endforeach
+					</table>
+				</div>
 			</div>
-
-
-			@if(Auth::check())
-			<?php $action = 'Add to'; ?>
-				{{-- Button to add Pokemon to slot 1 --}}
-				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-					<?php $slot_number = 1 ?>
-					@include('partials.slot-form')
-				{!! Form::close() !!}
-
-				{{-- Button to add Pokemon to slot 2 --}}
-				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-					<?php $slot_number = 2 ?>
-					@include('partials.slot-form')
-				{!! Form::close() !!}
-
-				{{-- Button to add Pokemon to slot 3 --}}
-				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-					<?php $slot_number = 3 ?>
-					@include('partials.slot-form')
-				{!! Form::close() !!}
-
-				{{-- Button to add Pokemon to slot 4 --}}
-				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-					<?php $slot_number = 4 ?>
-					@include('partials.slot-form')
-				{!! Form::close() !!}
-
-				{{-- Button to add Pokemon to slot 5 --}}
-				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-					<?php $slot_number = 5 ?>
-					@include('partials.slot-form')
-				{!! Form::close() !!}
-
-				{{-- Button to add Pokemon to slot 6 --}}
-				{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-					<?php $slot_number = 6 ?>
-					@include('partials.slot-form')
-				{!! Form::close() !!}
-			@endif
 
 			@foreach ($comments as $comment)
 				<p>
