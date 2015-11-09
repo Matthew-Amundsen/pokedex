@@ -149,7 +149,6 @@
 			
 			{!! Form::open(['route' => ['comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
 				<div class="form-group">
-					
 					{!! Form::label('Comment:') !!}
 					{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
 				</div>
