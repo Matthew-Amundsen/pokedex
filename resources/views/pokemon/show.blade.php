@@ -8,18 +8,20 @@
 			<h2>{{ $pokemonData->name }}</h2>
 			<img src="..\images\pokemon\{{ $pokemon->id }}.png">
 
+			<div class="hexagon"></div>
+
 			<h3>Type:</h3>
 			<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
 			@if(count($pokemonData->types) > 1)
 				<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
 			@endif
 
-			<p>HP: {{ $pokemonData->hp}}</p>
-			<p>Attack: {{ $pokemonData->attack }}</p>
-			<p>Defense: {{ $pokemonData->defense }}</p>
-			<p>Sp.Atk: {{ $pokemonData->sp_atk }}</p>
-			<p>Sp.Def: {{ $pokemonData->sp_def }}</p>
-			<p>Speed: {{ $pokemonData->speed }}</p>
+			<p>HP: {{ $pokemonData->hp}}</p><p class="stat-bar" style="width: {{ $pokemonData->hp}}px">&nbsp;</p>
+			<p>Attack: {{ $pokemonData->attack }}</p><p class="stat-bar" style="width: {{ $pokemonData->attack}}px">&nbsp;</p>
+			<p>Defense: {{ $pokemonData->defense }}</p><p class="stat-bar" style="width: {{ $pokemonData->defense}}px">&nbsp;</p>
+			<p>Sp.Atk: {{ $pokemonData->sp_atk }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_atk}}px">&nbsp;</p>
+			<p>Sp.Def: {{ $pokemonData->sp_def }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_def}}px">&nbsp;</p>
+			<p>Speed: {{ $pokemonData->speed }}</p><p class="stat-bar" style="width: {{ $pokemonData->speed}}px">&nbsp;</p>
 			<p>National ID: {{ $pokemonData->national_id }}</p>
 
 			<div class="row">

@@ -121,12 +121,14 @@ nav .input-group {
    Pokemon stats
    ========================================================================== */
 
+
 .type-block {
 	display: inline-block;
 	text-align: center;
 	width: 100px;
 	font-size: 20px;
 	color: #eeeeee;
+	border: 1px solid #363636;
 }
 
 .water {
@@ -205,5 +207,9 @@ nav .input-group {
 	background-color: #f9aeff;
 }
 
-
+.stat-bar {
+	content: "";
+	background-color: lime;
+	display: inline-block
+}
 
