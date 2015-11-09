@@ -71,29 +71,47 @@ nav .input-group {
    Pokemon index
    ========================================================================== */
 
-.pokemon-index img {
-	background-color: #eeeeee;
+.pokemon-index {
+	background-color: #ffffff;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-h3 {
-	display: inline-block;
+.pokemon-index img {
+	background-color: #eeeeee;
+
 }
 
 .pokemon-number {
-	width: 60px;
+	width: 120px;
 	color: #ffffff;
 	background-color: #363636;
+	margin-left: -16px;
+	margin-right: -30px;
+	display: inline-block;
+	height: 2.5em;
+}
+
+.pokemon-number p {
+	margin-left: -40px;
+	font-size: 1.7em;
+	text-align: center;
 }
 
 .pokemon-name {
-	width: 180px;
+	width: 163px;
 	color: #ffffff;
 	position: relative;
 	background-color: #575757;
-	transform: skew(-20deg);
+	transform: skew(-45deg);
+	display: inline-block;
+	height: 2.5em;
+	margin: 0 auto;
 }
 
 .pokemon-name p {
-	transform: skew(20deg);
+	transform: skew(45deg);
+	font-size: 1.7em;
+	padding-right: 20px;
 }
 
