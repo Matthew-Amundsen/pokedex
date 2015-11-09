@@ -66,7 +66,7 @@ class ProfileController extends Controller
 
 		User::addPokemon($user, $slot, $pokemon);
 		// dd($user, $slot, $pokemon);
-		return redirect()->route('home');
+		return redirect()->route('pokemon.show', [$pokemon]);
 	}
 
 	public function removePokemon(Request $request)
@@ -77,6 +77,6 @@ class ProfileController extends Controller
 
 		User::addPokemon($user, $slot, $pokemon);
 		// dd($user, $slot, $pokemon);
-		return redirect()->route('home');
+		return redirect()->route('profile.show', [$user]);
 	}
 }
