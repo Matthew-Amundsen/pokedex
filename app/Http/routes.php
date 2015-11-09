@@ -16,7 +16,7 @@ Route::get('/', 				['as' => 'home', 'uses' => 'PagesController@home']);
 // Search routes...
 Route::get('search',			['as' => 'search', 'uses' => 'PokemonController@Search']);
 
-Route::resource('comments', 'CommentsController');
+Route::resource('pokemon.comments', 'CommentsController');
 
 // Pokemon routes...
 Route::get('pokemon/{id}', 			['as' => 'pokemon.show', 'uses' => 'PokemonController@show']);

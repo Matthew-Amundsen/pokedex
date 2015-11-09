@@ -16,37 +16,18 @@ class CommentsController extends Controller
 	}
 	
 	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, $pokemon_id)
 	{
 		$user = $request->user();
+		$pokemon = Pokemon::findOrFail($pokemon_id);
 		$comment = new Comment($request->all());
+		$comment->pokemon_id = $pokemon_id;
 		$comment->user()->associate($request->user());
-		$comment->pokemon_id = 1;
 		$comment->save();
 
 		return redirect()->route('pokemon.show', $comment->pokemon_id);
@@ -58,7 +39,7 @@ class CommentsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show($pokemon_id, $id)
 	{
 		//
 	}
@@ -69,11 +50,12 @@ class CommentsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id)
+	public function edit($pokemon_id, $id)
 	{
+		$pokemon = Pokemon::findOrFail($pokemon_id);
 		$comment = Comment::findOrFail($id);
 
-		return view('comment.edit', compact('comment'));
+		return view('comment.edit', compact('pokemon', 'comment'));
 	}
 
 	/**
@@ -83,9 +65,10 @@ class CommentsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(Request $request, $pokemon_id, $id)
 	{
 		$user = $request->user();
+		$pokemon = Pokemon::findOrFail($pokemon_id);
 		$comment = Comment::findOrFail($id);
 		$comment->fill($request->all());
 		$comment->save();
@@ -99,7 +82,7 @@ class CommentsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id)
+	public function destroy($pokemon_id, $id)
 	{
 		$comment = Comment::findOrFail($id);
 		$pokemon_id = $comment->pokemon_id;

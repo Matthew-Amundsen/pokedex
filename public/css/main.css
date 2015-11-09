@@ -209,7 +209,8 @@ nav .input-group {
 
 .stat-bar {
 	content: "";
-	background-color: lime;
-	display: inline-block
+	background-color: #16d600;
+	display: inline-block;
+	border: solid 1px #000;
 }
 

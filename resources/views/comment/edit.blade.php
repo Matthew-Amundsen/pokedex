@@ -3,7 +3,7 @@
 @section('content')
 	<div class="jumbotron">
 		<div class="container content-container">
-			{!! Form::open(['action' => ['CommentsController@update', $comment->id], 'class' => 'form-horizontal', 'method' => 'PUT']) !!}
+			{!! Form::open(['route' => ['pokemon.comments.update', $pokemon->id, $comment->id], 'class' => 'form-horizontal', 'method' => 'PUT']) !!}
 				<div class="form-group">
 					
 					{!! Form::label('Comment:') !!}

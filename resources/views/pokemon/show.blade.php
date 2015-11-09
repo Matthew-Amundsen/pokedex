@@ -16,12 +16,12 @@
 				<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
 			@endif
 
-			<p>HP: {{ $pokemonData->hp}}</p><p class="stat-bar" style="width: {{ $pokemonData->hp}}px">&nbsp;</p>
-			<p>Attack: {{ $pokemonData->attack }}</p><p class="stat-bar" style="width: {{ $pokemonData->attack}}px">&nbsp;</p>
-			<p>Defense: {{ $pokemonData->defense }}</p><p class="stat-bar" style="width: {{ $pokemonData->defense}}px">&nbsp;</p>
-			<p>Sp.Atk: {{ $pokemonData->sp_atk }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_atk}}px">&nbsp;</p>
-			<p>Sp.Def: {{ $pokemonData->sp_def }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_def}}px">&nbsp;</p>
-			<p>Speed: {{ $pokemonData->speed }}</p><p class="stat-bar" style="width: {{ $pokemonData->speed}}px">&nbsp;</p>
+			<p>HP: {{ $pokemonData->hp}}</p><p class="stat-bar" style="width: {{ $pokemonData->hp * 2 }}px">&nbsp;</p>
+			<p>Attack: {{ $pokemonData->attack }}</p><p class="stat-bar" style="width: {{ $pokemonData->attack * 2 }}px">&nbsp;</p>
+			<p>Defense: {{ $pokemonData->defense }}</p><p class="stat-bar" style="width: {{ $pokemonData->defense * 2 }}px">&nbsp;</p>
+			<p>Sp.Atk: {{ $pokemonData->sp_atk }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_atk * 2 }}px">&nbsp;</p>
+			<p>Sp.Def: {{ $pokemonData->sp_def }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_def * 2 }}px">&nbsp;</p>
+			<p>Speed: {{ $pokemonData->speed }}</p><p class="stat-bar" style="width: {{ $pokemonData->speed * 2 }}px">&nbsp;</p>
 			<p>National ID: {{ $pokemonData->national_id }}</p>
 
 			<div class="row">
@@ -137,9 +137,9 @@
 					{{ $comment->comment }} - Posted by: {{ $comment->user->name }}
 					
 					@if(Auth::check() && Auth::user()->role === "admin")
-						{!! Form::open(['action' => ['CommentsController@destroy', $comment->id], 'method' => 'delete']) !!}
+						{!! Form::open(['route' => ['pokemon.comments.destroy', $pokemon->id, $comment->id], 'method' => 'delete']) !!}
 							{!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
-							<a href="{{ route('comments.edit', $comment->id, $pokemon->id) }}" class="btn btn-warning">Edit Comment</a>
+							<a href="{{ route('pokemon.comments.edit', [$pokemon->id, $comment->id]) }}" class="btn btn-warning">Edit Comment</a>
 						{!! Form::close() !!}
 					@endif
 				</p>
@@ -150,8 +150,9 @@
 		<div class="container">
 			<h4>Comment on {{ $pokemon->name }}</h4>
 			
-			{!! Form::open(['route' => ['comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
+			{!! Form::open(['route' => ['pokemon.comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
 				<div class="form-group">
+					{!! Form::hidden('pokemon_id', $pokemon->id) !!}
 					{!! Form::label('Comment:') !!}
 					{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
 				</div>
