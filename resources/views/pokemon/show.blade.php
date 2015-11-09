@@ -7,19 +7,20 @@
 			<h1>Pokemon</h1>
 			<h2>{{ $pokemonData->name }}</h2>
 			<img src="..\images\pokemon\{{ $pokemon->id }}.png">
-			<p>Type: {{$pokemonData->types[0]->name}}
-				@if(count($pokemonData->types) > 1)
-					| {{$pokemonData->types[1]->name}}
-				@endif
-			</p>
 
-			<p>HP: {{$pokemonData->hp}}</p>
+			<h3>Type:</h3>
+			<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
+			@if(count($pokemonData->types) > 1)
+				<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
+			@endif
+
+			<p>HP: {{ $pokemonData->hp}}</p>
 			<p>Attack: {{ $pokemonData->attack }}</p>
-			<p>Defense: {{$pokemonData->defense}}</p>
-			<p>Sp.Atk: {{$pokemonData->sp_atk}}</p>
-			<p>Sp.Def: {{$pokemonData->sp_def}}</p>
-			<p>Speed: {{$pokemonData->speed}}</p>
-			<p>National ID: {{$pokemonData->national_id}}</p>
+			<p>Defense: {{ $pokemonData->defense }}</p>
+			<p>Sp.Atk: {{ $pokemonData->sp_atk }}</p>
+			<p>Sp.Def: {{ $pokemonData->sp_def }}</p>
+			<p>Speed: {{ $pokemonData->speed }}</p>
+			<p>National ID: {{ $pokemonData->national_id }}</p>
 
 			<div class="row">
 				<div class="col-xs-2">
