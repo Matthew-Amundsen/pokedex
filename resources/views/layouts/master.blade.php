@@ -29,9 +29,7 @@
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+						<span class="glyphicon-triangle-bottom"></span>
 					</button>
 					<a class="navbar-brand" href="{{ route('home') }}">Pokedex</a>
 				</div>
@@ -39,18 +37,16 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav">
-						<li class="{{ Route::currentRouteName() === 'home' ? 'active' : null }}"><a href="{{ route('home') }}">Home</a></li>
-						<li class="{{ Route::currentRouteName() === 'pokemon.index' ? 'active' : null }}"><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
+						<li><a href="{{ route('home') }}">Home</a></li>
+						<li><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
 					</ul>
 
-					{!! Form::open(['route' => 'search', 'method' => 'get']) !!}
-						<div class="col-xs-3">
-							<div class="input-group">
-								{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
-								<span class="input-group-btn">
-								{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-default', 'type' => 'submit']) !!}
-								</span>
-							</div>
+					{!! Form::open(['route' => 'search', 'method' => 'get', 'id' => 'search-bar']) !!}
+						<div class="input-group">
+							{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
+							<span class="input-group-btn">
+							{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-default', 'type' => 'submit']) !!}
+							</span>
 						</div>
 					{!! Form::close() !!}
 
@@ -71,10 +67,13 @@
 
 	@yield('content')
 
-		<script src="{{ asset('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') }}"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"><\/script>')</script>
+
 		<script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
+
 		<script src="{{ asset('js/main.js') }}"></script>
+
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

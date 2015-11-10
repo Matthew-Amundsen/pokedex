@@ -37,6 +37,20 @@ grey - #363636
    Heading / Navigation
    ========================================================================== */
 
+#search-bar {
+	display: inline-block;
+	max-width: 250px; 
+}
+
+.glyphicon-triangle-bottom {
+	background-color: yellow;
+}
+
+
+/* ==========================================================================
+   Heading / Navigation
+   ========================================================================== */
+
 	/* Creates space between the content and the floating heading */
 .content-container {
 	margin-top: 50px;
@@ -67,6 +81,15 @@ nav .input-group {
 	color: #ffffff;
 }
 
+	/* Dropdown button for mobile - Colors*/
+.navbar-toggle {
+	border: 1px solid #ffffff;
+	color: #ffffff;
+}
+
+.navbar-toggle span{
+	background-color: #ffffff;
+}
 /* ==========================================================================
    Pokemon index
    ========================================================================== */
@@ -121,7 +144,6 @@ nav .input-group {
    Pokemon stats
    ========================================================================== */
 
-
 .type-block {
 	display: inline-block;
 	text-align: center;
@@ -129,6 +151,7 @@ nav .input-group {
 	font-size: 20px;
 	color: #eeeeee;
 	border: 1px solid #363636;
+	margin-top: 20px;
 }
 
 .water {
@@ -214,3 +237,12 @@ nav .input-group {
 	border: solid 1px #000;
 }
 
+.stat-info  {
+	text-align: right;
+	min-width: 40px;
+	padding: 0 5px 10px 0;
+}
+
+.stat-detail {
+	padding: 0 5px 10px 0;
+}

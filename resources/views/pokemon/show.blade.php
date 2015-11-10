@@ -4,25 +4,53 @@
 
 		<!-- Main jumbotron for a primary marketing message or call to action -->
 		<div class="container content-container">
-			<h1>Pokemon</h1>
-			<h2>{{ $pokemonData->name }}</h2>
-			<img src="..\images\pokemon\{{ $pokemon->id }}.png">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<h2>{{ $pokemonData->name }}</h2>
+					<img src="..\images\pokemon\{{ $pokemon->id }}.png">
+					<h4>National ID: {{ $pokemonData->national_id }}</h4>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
+					@if(count($pokemonData->types) > 1)
+						<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
+					@endif
 
-			<div class="hexagon"></div>
+					<table>
+						<tr>
+							<th class="stat-detail">HP:</th>
+							<td class="stat-info">{{ $pokemonData->hp }}</td>
+							<td><p class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</p></td>
+						</tr>
+						<tr>
+							<th class="stat-detail">Attack:</th>
+							<td class="stat-info">{{ $pokemonData->attack }}</td>
+							<td><p class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</p></td>
+						</tr>
+						<tr>
+							<th class="stat-detail">Defense:</th>
+							<td class="stat-info">{{ $pokemonData->defense }}</td>
+							<td><p class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</p></td>
+						</tr>
+						<tr>
+							<th class="stat-detail">Sp.Atk:</th>
+							<td class="stat-info">{{ $pokemonData->sp_atk }}</td>
+							<td><p class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</p></td>
+						</tr>
+						<tr>
+							<th class="stat-detail">Sp.Def:</th>
+							<td class="stat-info">{{ $pokemonData->sp_def }}</td>
+							<td><p class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</p></td>
+						</tr>
+						<tr>
+							<th class="stat-detail">Speed:</th>
+							<td class="stat-info">{{ $pokemonData->speed }}</td>
+							<td><p class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</p></td>
+						</tr>
+					</table>
 
-			<h3>Type:</h3>
-			<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
-			@if(count($pokemonData->types) > 1)
-				<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
-			@endif
-
-			<p>HP: {{ $pokemonData->hp}}</p><p class="stat-bar" style="width: {{ $pokemonData->hp * 2 }}px">&nbsp;</p>
-			<p>Attack: {{ $pokemonData->attack }}</p><p class="stat-bar" style="width: {{ $pokemonData->attack * 2 }}px">&nbsp;</p>
-			<p>Defense: {{ $pokemonData->defense }}</p><p class="stat-bar" style="width: {{ $pokemonData->defense * 2 }}px">&nbsp;</p>
-			<p>Sp.Atk: {{ $pokemonData->sp_atk }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_atk * 2 }}px">&nbsp;</p>
-			<p>Sp.Def: {{ $pokemonData->sp_def }}</p><p class="stat-bar" style="width: {{ $pokemonData->sp_def * 2 }}px">&nbsp;</p>
-			<p>Speed: {{ $pokemonData->speed }}</p><p class="stat-bar" style="width: {{ $pokemonData->speed * 2 }}px">&nbsp;</p>
-			<p>National ID: {{ $pokemonData->national_id }}</p>
+				</div>
+			</div>
 
 			<div class="row">
 				<div class="col-xs-2">
