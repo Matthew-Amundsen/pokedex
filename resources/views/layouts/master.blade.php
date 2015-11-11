@@ -17,8 +17,6 @@
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 		<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
-
-		<script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -65,14 +63,22 @@
 			</div>
 		</nav>
 
+			@if( Session::has( 'success' ))
+				<div class="flash-message">
+					<div class="alert alert-success alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<strong>Success!</strong> {{ Session::get( 'success' ) }}
+					</div>
+				</div>
+			@elseif( Session::has( 'warning' ))
+				{{ Session::get( 'warning' ) }} <!-- here to 'withWarning()' -->
+			@endif
+
+			
+
 	@yield('content')
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"><\/script>')</script>
-
-		<script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
-
-		<script src="{{ asset('js/main.js') }}"></script>
+		<script src="{{ asset('js/all.js') }}"></script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>

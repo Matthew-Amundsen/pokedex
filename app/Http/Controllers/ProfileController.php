@@ -55,7 +55,7 @@ class ProfileController extends Controller
 		$user->password = bcrypt($request->input('password'));
 		$user->save();
 
-		return redirect()->route('home')->with('status.success', "Your profile has been updated.");
+		return redirect()->route('profile.show', [$user])->withSuccess( 'Your profile has been updated.' );
 	}
 
 	public function addPokemon(Request $request)
@@ -66,7 +66,7 @@ class ProfileController extends Controller
 
 		User::addPokemon($user, $slot, $pokemon);
 		// dd($user, $slot, $pokemon);
-		return redirect()->route('pokemon.show', [$pokemon]);
+		return redirect()->route('pokemon.show', [$pokemon])->with('status.success', 'Pokemon Name was added to slot number');
 	}
 
 	public function removePokemon(Request $request)

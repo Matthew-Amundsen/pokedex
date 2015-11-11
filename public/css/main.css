@@ -141,6 +141,15 @@ nav .input-group {
 }
 
 /* ==========================================================================
+   Pokemon show - Data tab
+   ========================================================================== */
+
+#data {
+	margin-top: 20px;
+	text-align: center;
+}
+
+/* ==========================================================================
    Pokemon stats
    ========================================================================== */
 
@@ -151,7 +160,6 @@ nav .input-group {
 	font-size: 20px;
 	color: #eeeeee;
 	border: 1px solid #363636;
-	margin-top: 20px;
 }
 
 .water {
@@ -245,4 +253,32 @@ nav .input-group {
 
 .stat-detail {
 	padding: 0 5px 10px 0;
+}
+
+/* ==========================================================================
+   Moves tables
+   ========================================================================== */
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+	background-color: #eeeeee;
+	color: #363636;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td {
+	background-color: #cccccc;
+	color: #363636;
+}
+
+.table-striped th {
+	background-color: #363636;
+}
+
+/* ==========================================================================
+   Flash message
+   ========================================================================== */
+
+.flash-message {
+	margin-top: 50px;
+	margin-bottom: -50px;
+	padding: 10px;
 }
