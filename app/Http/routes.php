@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 				['as' => 'home', 'uses' => 'PagesController@home']);
+Route::get('/', 				['as' => 'pokemon.index', 'uses' => 'PokemonController@index']);
 
 // Search routes...
 Route::get('search',			['as' => 'search', 'uses' => 'PokemonController@Search']);
@@ -20,7 +20,7 @@ Route::resource('pokemon.comments', 'CommentsController');
 
 // Pokemon routes...
 Route::get('pokemon/{id}', 			['as' => 'pokemon.show', 'uses' => 'PokemonController@show']);
-Route::get('pokemon', 				['as' => 'pokemon.index', 'uses' => 'PokemonController@index']);
+// Route::get('pokemon', 				['as' => 'pokemon.index', 'uses' => 'PokemonController@index']);
 
 // Profile routes...
 Route::get('profile/show/{id}',		['as' => 'profile.show',    'uses' => 'ProfileController@show']);

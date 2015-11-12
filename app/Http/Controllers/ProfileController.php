@@ -51,8 +51,12 @@ class ProfileController extends Controller
 	public function update(UpdateProfileRequest $request)
 	{
 		$user = Auth::user();
-		$user->fill($request->all());
-		$user->password = bcrypt($request->input('password'));
+		$user->fill($request->except(['password']));
+		
+		if($request->password) {
+			$user->password = bcrypt($request->input('password'));
+		}
+		
 		$user->save();
 
 		return redirect()->route('profile.show', [$user])->withSuccess( 'Your profile has been updated.' );
@@ -66,7 +70,7 @@ class ProfileController extends Controller
 
 		User::addPokemon($user, $slot, $pokemon);
 		// dd($user, $slot, $pokemon);
-		return redirect()->route('pokemon.show', [$pokemon])->with('status.success', 'Pokemon Name was added to slot number');
+		return redirect()->route('pokemon.show', [$pokemon])->withSuccess('Pokemon was added to slot number ' . $slot);
 	}
 
 	public function removePokemon(Request $request)
@@ -77,6 +81,6 @@ class ProfileController extends Controller
 
 		User::addPokemon($user, $slot, $pokemon);
 		// dd($user, $slot, $pokemon);
-		return redirect()->route('profile.show', [$user]);
+		return redirect()->route('profile.show', [$user])->withSuccess('Pokemon was removed from slot number ' . $slot);;
 	}
 }

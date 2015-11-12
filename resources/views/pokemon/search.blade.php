@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="container content-container">
-		<h1>Search Results</h1>
+		<h2 class="text-center">Search Results</h2>
 		
 		@foreach($result as $pokemon)
 			<a href="{{ route('pokemon.show', $pokemon->id) }}">

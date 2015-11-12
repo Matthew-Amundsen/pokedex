@@ -20,7 +20,10 @@
 						</a>
 						@if(Auth::check() && ($user->id === Auth::user()->id))
 							{!! Form::open(['route' => ['profile.removePokemon'], 'method' => 'POST']) !!}
-								<?php $slot_number = $i ?>
+								<?php 
+									$slot_number = $i;
+									$action_words = 'Remove ' . $pokemon->name . ' from slot ';
+								?>
 								@include('partials.slot-form')
 							{!! Form::close() !!}
 						@endif

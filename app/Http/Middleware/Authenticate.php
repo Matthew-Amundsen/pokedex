@@ -14,6 +14,8 @@ class Authenticate
      */
     protected $auth;
 
+    protected $redirectPath = '/';
+
     /**
      * Create a new filter instance.
      *

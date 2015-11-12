@@ -7,12 +7,11 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<h2>{{ $pokemonData->name }}</h2>
-					<h4>National ID: {{ $pokemonData->national_id }}</h4>
+					<h4 class="national-id">National ID: {{ $pokemonData->national_id }}</h4>
 					
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
 						<li role="presentation"><a href="#moves" aria-controls="moves" role="tab" data-toggle="tab">Moves</a></li>
-						<li role="presentation"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a></li>
 						<li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a></li>
 					</ul>
 
@@ -67,7 +66,10 @@
 										<div class="col-xs-6">
 											{{-- Button to add Pokemon to slot 1 --}}
 											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php $slot_number = 1 ?>
+												<?php
+													$slot_number = 1;
+													$action_words = 'Add ' . $pokemon->name . ' to slot '
+												?>
 												@include('partials.slot-form')
 											{!! Form::close() !!}
 										</div>
@@ -173,28 +175,24 @@
 							</div>
 						</div>
 
-						<div role="tabpanel" class="tab-pane" id="location">
-
-						</div>
-
 						<div role="tabpanel" class="tab-pane" id="comments">
 							<div>
 								@foreach ($comments as $comment)
-									<p>
-										{{ $comment->comment }} - Posted by: {{ $comment->user->name }}
-										
-										@if(Auth::check() && Auth::user()->role === "admin")
-											{!! Form::open(['route' => ['pokemon.comments.destroy', $pokemon->id, $comment->id], 'method' => 'delete']) !!}
-												{!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
-												<a href="{{ route('pokemon.comments.edit', [$pokemon->id, $comment->id]) }}" class="btn btn-warning">Edit Comment</a>
-											{!! Form::close() !!}
-										@endif
-									</p>
+									<div class="comment-bubble">
+										<p class="username">{{ $comment->user->name }}</p>
+										<p class="created-at">{{ $comment->created_at }}</p>
+										<p class="comment">{{ $comment->comment }}</p>
+									</div>
+																				
+									@if(Auth::check() && Auth::user()->role === "admin")
+										<a href="{{ route('pokemon.comments.edit', [$pokemon->id, $comment->id]) }}" class="btn btn-default">Edit Comment</a>
+									@endif
+									<hr class="comment-hr">
 								@endforeach
 							</div>
 							<div>
 								@if(Auth::check())
-									<div class="col-xs-12">
+									<div class="col-xs-12 comment-block">
 										<h4>Comment on {{ $pokemon->name }}</h4>
 										
 										{!! Form::open(['route' => ['pokemon.comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}

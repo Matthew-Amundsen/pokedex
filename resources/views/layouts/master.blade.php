@@ -29,13 +29,11 @@
 						<span class="sr-only">Toggle navigation</span>
 						<span class="glyphicon-triangle-bottom"></span>
 					</button>
-					<a class="navbar-brand" href="{{ route('home') }}">Pokedex</a>
 				</div>
 				
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav">
-						<li><a href="{{ route('home') }}">Home</a></li>
 						<li><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
 					</ul>
 
@@ -63,21 +61,27 @@
 			</div>
 		</nav>
 
-			@if( Session::has( 'success' ))
-				<div class="flash-message">
-					<div class="alert alert-success alert-dismissible" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<strong>Success!</strong> {{ Session::get( 'success' ) }}
-					</div>
+		@if( Session::has( 'success' ))
+			<div class="flash-message">
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>Success!</strong> {{ Session::get( 'success' ) }}
 				</div>
-			@elseif( Session::has( 'warning' ))
-				{{ Session::get( 'warning' ) }} <!-- here to 'withWarning()' -->
-			@endif
+			</div>
+		@elseif( Session::has( 'warning' ))
+			{{ Session::get( 'warning' ) }} <!-- here to 'withWarning()' -->
+		@endif
 
 			
 
 	@yield('content')
 
+		<footer>
+			<p>All images belong to Gamefreak and Nintendo</p>
+
+
+		</footer>
+		
 		<script src="{{ asset('js/all.js') }}"></script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -7,13 +7,13 @@ grey - #363636
 */
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+	Author's custom styles
+	========================================================================== */
 
 
 /* ==========================================================================
-   Register and Log In pages
-   ========================================================================== */
+	Register and Log In pages
+	========================================================================== */
 
    /* restricts the forms widths */
 .form-signin {
@@ -34,22 +34,18 @@ grey - #363636
 }
 
 /* ==========================================================================
-   Heading / Navigation
-   ========================================================================== */
+	Heading / Search Bar
+	========================================================================== */
 
 #search-bar {
 	display: inline-block;
-	max-width: 250px; 
+	max-width: 250px;
+	margin-top: 8px;
 }
-
-.glyphicon-triangle-bottom {
-	background-color: yellow;
-}
-
 
 /* ==========================================================================
-   Heading / Navigation
-   ========================================================================== */
+	Heading / Navigation
+	========================================================================== */
 
 	/* Creates space between the content and the floating heading */
 .content-container {
@@ -57,7 +53,7 @@ grey - #363636
 }
 
    /* verticaly centers the search bar */
-nav .input-group {
+nav.input-group {
 	margin-top: 8px;
 }
 
@@ -66,11 +62,11 @@ nav .input-group {
 }
 
 .navbar a:link {
-	color: #ffffff;
+	color: #fff;
 }
 
 .navbar a:visited {
-	color: #ffffff;
+	color: #fff;
 }
 
 .navbar a:hover {
@@ -78,21 +74,33 @@ nav .input-group {
 }
 
 .navbar a:active {
-	color: #ffffff;
+	color: #fff;
 }
 
-	/* Dropdown button for mobile - Colors*/
+	/* Dropdown button for mobile - Colors */
 .navbar-toggle {
-	border: 1px solid #ffffff;
-	color: #ffffff;
+	border: 1px solid #fff;
+	color: #fff;
 }
 
 .navbar-toggle span{
-	background-color: #ffffff;
+	background-color: #fff;
 }
+
 /* ==========================================================================
-   Pokemon index
-   ========================================================================== */
+	Heading / Navigation
+	========================================================================== */
+
+footer {
+	background-color: #c44330;
+	color: #fff;
+	height: 100px;
+	margin-top: 50px;
+}
+
+/* ==========================================================================
+	Pokemon index
+	========================================================================== */
 
 .pokemon-index {
 	text-align: center;
@@ -105,7 +113,7 @@ nav .input-group {
 
 .pokemon-number {
 	width: 100px;
-	color: #ffffff;
+	color: #fff;
 	background-color: #363636;
 	margin-left: -15px;
 	margin-right: -30px;
@@ -122,7 +130,7 @@ nav .input-group {
 
 .pokemon-name {
 	width: 165px;
-	color: #ffffff;
+	color: #fff;
 	position: relative;
 	background-color: #575757;
 	transform: skew(-35deg);
@@ -141,8 +149,8 @@ nav .input-group {
 }
 
 /* ==========================================================================
-   Pokemon show - Data tab
-   ========================================================================== */
+	Pokemon show - Data tab
+	========================================================================== */
 
 #data {
 	margin-top: 20px;
@@ -150,8 +158,54 @@ nav .input-group {
 }
 
 /* ==========================================================================
-   Pokemon stats
-   ========================================================================== */
+	Pokemon show - Moves tab
+	========================================================================== */
+
+/* ==========================================================================
+	Pokemon show - Comments tab
+	========================================================================== */
+
+	/* Comments */
+.comment-bubble {
+	padding: 5px 20px;
+}
+
+.comment-hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ddd;
+	margin: 1em 0;
+	padding: 0;
+}
+
+p.username {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+p.created-at {
+	color: #9c9c9c;
+	font-size: 12px;
+}
+
+p.comment {
+
+}
+
+	/* Edit Comment Button */
+.btn {
+	margin-left: 20px;
+}
+
+	/* Comment entry block */
+.comment-block {
+	margin-left: 20px;
+}
+
+/* ==========================================================================
+	Pokemon stats
+	========================================================================== */
 
 .type-block {
 	display: inline-block;
@@ -256,8 +310,8 @@ nav .input-group {
 }
 
 /* ==========================================================================
-   Moves tables
-   ========================================================================== */
+	Moves tables
+	========================================================================== */
 
 .table-striped > tbody > tr:nth-child(odd) > td {
 	background-color: #eeeeee;
@@ -271,14 +325,37 @@ nav .input-group {
 
 .table-striped th {
 	background-color: #363636;
+	color: #fff;
 }
 
 /* ==========================================================================
-   Flash message
-   ========================================================================== */
+	Flash message
+	========================================================================== */
 
 .flash-message {
 	margin-top: 50px;
 	margin-bottom: -50px;
 	padding: 10px;
 }
+
+/* ==========================================================================
+	Comments
+	========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
