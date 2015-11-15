@@ -129,23 +129,7 @@
 										@endif
 									@endforeach
 								</table>
-							</div>
-
-							<div class="col-xs-12 col-sm-6">
-								<h3>Learn By Machine</h3>
-								<table class="table table-striped">
-									<th>Name</th>
-
-									@foreach($pokemonData->moves as $move)
-										@if($move->learn_type === "machine")
-											<tr>
-												<td>{{$move->name}}</td>
-											</tr>
-										@endif
-									@endforeach
-								</table>
-							</div>
-							<div class="col-xs-12 col-sm-6">
+							
 								<h3>Learn By Tutor</h3>
 								<table class="table table-striped">
 									<th>Name</th>
@@ -158,14 +142,28 @@
 										@endif
 									@endforeach
 								</table>
-							</div>
-							<div class="col-xs-12 col-sm-6">
+							
 								<h3>Learn By Breeding</h3>
 								<table class="table table-striped">
 									<th>Name</th>
 									
 									@foreach($pokemonData->moves as $move)
 										@if($move->learn_type === "egg move")
+											<tr>
+												<td>{{$move->name}}</td>
+											</tr>
+										@endif
+									@endforeach
+								</table>
+							</div>
+
+							<div class="col-xs-12 col-sm-6">
+								<h3>Learn By Machine</h3>
+								<table class="table table-striped">
+									<th>Name</th>
+
+									@foreach($pokemonData->moves as $move)
+										@if($move->learn_type === "machine")
 											<tr>
 												<td>{{$move->name}}</td>
 											</tr>
@@ -185,7 +183,7 @@
 									</div>
 																				
 									@if(Auth::check() && Auth::user()->role === "admin")
-										<a href="{{ route('pokemon.comments.edit', [$pokemon->id, $comment->id]) }}" class="btn btn-default">Edit Comment</a>
+										<a href="{{ route('pokemon.comments.edit', [$pokemon->id, $comment->id]) }}" class="btn btn-default btn-edit">Edit Comment</a>
 									@endif
 									<hr class="comment-hr">
 								@endforeach
@@ -211,4 +209,7 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
 @endsection
