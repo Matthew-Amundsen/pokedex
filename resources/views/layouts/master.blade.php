@@ -77,9 +77,13 @@
 	@yield('content')
 
 		<footer>
-			<p>All images belong to Gamefreak and Nintendo</p>
-
-
+			<div class="container-fluid">
+				<div class="row">
+					<p class="footer-link"><a href="https://github.com/Matthew-Amundsen" target="blank">View on Github<img src="../../images/GitHub-Mark-Light-32px.png"></a><span class="footer-triangle"></span></p>
+					<p class="footer-link"><a href="http://pokeapi.co/" target="blank">Data provided by Pokeapi</a><span class="footer-triangle"></span></p>
+					<p class="footer-link"><a href="https://github.com/veekun/pokedex" target="blank">Data provided by Veekun</a><span class="footer-triangle"></span></p>
+				</div>
+			</div>
 		</footer>
 		
 		<script src="{{ asset('js/all.js') }}"></script>

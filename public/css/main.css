@@ -88,14 +88,74 @@ nav.input-group {
 }
 
 /* ==========================================================================
-	Heading / Navigation
+	Footer
 	========================================================================== */
 
 footer {
 	background-color: #c44330;
 	color: #fff;
-	height: 100px;
+	min-height: 100px;
 	margin-top: 50px;
+}
+
+footer img {
+	margin-left: 10px;
+	width: 28px;
+}
+
+/*footer ul {
+	line-height: 100px;
+}
+
+footer li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	border-left: 50px solid yellow;
+}*/
+.footer-link {
+	display: inline-block;
+}
+
+.footer-link p:before {
+	background-color: blue;
+}
+
+.footer-triangle {
+	position: relative;
+	top: 25px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 35px 35px 0 0;
+	border-color: #363636 transparent transparent transparent;
+}
+
+.footer-link:hover a {
+	background-color: #575757;
+}
+
+.footer-link:hover .footer-triangle {
+	border-color: #575757 transparent transparent transparent;
+}
+
+footer a:link {
+	color: #fff;
+	background-color: #363636;
+	padding: 10px;
+}
+
+footer a:visited {
+	color: #fff;
+}
+
+footer a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:active {
+	color: #fff;
 }
 
 /* ==========================================================================
