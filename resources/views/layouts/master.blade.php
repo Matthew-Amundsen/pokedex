@@ -78,7 +78,7 @@
 
 		<footer>
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row footer-row">
 					<p class="footer-link"><a href="https://github.com/Matthew-Amundsen" target="_blank">View on Github<img src="../../images/GitHub-Mark-Light-32px.png"></a><span class="footer-triangle"></span></p>
 					<p class="footer-link"><a href="http://pokeapi.co/" target="_blank">Data provided by Pokeapi</a><span class="footer-triangle"></span></p>
 					<p class="footer-link"><a href="https://github.com/veekun/pokedex" target="_blank">Data provided by Veekun</a><span class="footer-triangle"></span></p>

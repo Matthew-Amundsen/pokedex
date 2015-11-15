@@ -10,6 +10,18 @@ grey - #363636
 	Author's custom styles
 	========================================================================== */
 
+/* ==========================================================================
+	Sticky Footer html/body
+	========================================================================== */
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+}
 
 /* ==========================================================================
 	Register and Log In pages
@@ -94,8 +106,17 @@ nav.input-group {
 footer {
 	background-color: #c44330;
 	color: #fff;
-	min-height: 100px;
 	margin-top: 50px;
+
+	min-height: 100px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer-row {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 footer img {
@@ -103,18 +124,23 @@ footer img {
 	width: 28px;
 }
 
-/*footer ul {
-	line-height: 100px;
-}
-
-footer li {
-	list-style: none;
-	display: inline-block;
-	margin: 0 20px;
-	border-left: 50px solid yellow;
-}*/
 .footer-link {
 	display: inline-block;
+}
+
+.footer-link:nth-child(1) {
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+.footer-link:nth-child(2) {
+	margin-left: -39px;
+	margin-top: 5px;
+}
+
+.footer-link:nth-child(3) {
+	margin-left: -40px;
+	margin-top: 10px;
 }
 
 .footer-triangle {
@@ -140,21 +166,6 @@ footer a:link {
 	background-color: #363636;
 	text-decoration: none;
 	padding: 10px 80px 10px 80px;
-}
-
-.footer-link:nth-child(1) {
-	margin-left: -10px;
-	margin-top: 10px;
-}
-
-.footer-link:nth-child(2) {
-	margin-left: -39px;
-	margin-top: 5px;
-}
-
-.footer-link:nth-child(3) {
-	margin-left: -40px;
-	margin-top: 10px;
 }
 
 footer a:visited {
@@ -412,7 +423,6 @@ p.comment {
 /* ==========================================================================
 	Comments
 	========================================================================== */
-
 
 
 
