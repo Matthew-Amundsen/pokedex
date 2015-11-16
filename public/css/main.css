@@ -378,17 +378,21 @@ p.comment {
 	content: "";
 	background-color: #16d600;
 	display: inline-block;
-	border: solid 1px #000;
 }
 
 .stat-info  {
-	text-align: right;
-	min-width: 40px;
-	padding: 0 5px 10px 0;
+	display: inline-block;
+	width: 40px;
 }
 
 .stat-detail {
-	padding: 0 5px 10px 0;
+	display: inline-block;
+	width: 40px;
+}
+
+.stat {
+	display: inline-block;
+	max-width: 255px;
 }
 
 /* ==========================================================================

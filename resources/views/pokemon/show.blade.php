@@ -25,38 +25,26 @@
 								@if(count($pokemonData->types) > 1)
 									<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
 								@endif
-								<table>
-									<tr>
-										<th class="stat-detail">HP:</th>
-										<td class="stat-info">{{ $pokemonData->hp }}</td>
-										<td class="text-left"><span class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</span></td>
-									</tr>
-									<tr>
-										<th class="stat-detail">Attack:</th>
-										<td class="stat-info">{{ $pokemonData->attack }}</td>
-										<td class="text-left"><span class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</span></td>
-									</tr>
-									<tr>
-										<th class="stat-detail">Defense:</th>
-										<td class="stat-info">{{ $pokemonData->defense }}</td>
-										<td class="text-left"><span class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</span></td>
-									</tr>
-									<tr>
-										<th class="stat-detail">Sp.Atk:</th>
-										<td class="stat-info">{{ $pokemonData->sp_atk }}</td>
-										<td class="text-left"><span class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</span></td>
-									</tr>
-									<tr>
-										<th class="stat-detail">Sp.Def:</th>
-										<td class="stat-info">{{ $pokemonData->sp_def }}</td>
-										<td class="text-left"><span class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</span></td>
-									</tr>
-									<tr>
-										<th class="stat-detail">Speed:</th>
-										<td class="stat-info">{{ $pokemonData->speed }}</td>
-										<td class="text-left"><span class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</span></td>
-									</tr>
-								</table>
+								
+								<div class="row">
+									<p class="stat-detail">HP:</p><p class="stat-info">{{ $pokemonData->hp }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</span></p>
+								</div>
+								<div class="row">
+									<p class="stat-detail">Attack:</p><p class="stat-info">{{ $pokemonData->attack }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</span></p>
+								</div>
+								<div class="row">
+									<p class="stat-detail">Defense:</p><p class="stat-info">{{ $pokemonData->defense }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</span></p>
+								</div>
+								<div class="row">
+									<p class="stat-detail">Sp.Atk:</p><p class="stat-info">{{ $pokemonData->sp_atk }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</span></p>
+								</div>
+								<div class="row">
+									<p class="stat-detail">Sp.Def</p><p class="stat-info">{{ $pokemonData->sp_def }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</span></p>
+								</div>
+								<div class="row">
+									<p class="stat-detail">Speed</p><p class="stat-info">{{ $pokemonData->speed }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</span></p>
+								</div>
+
 							</div>
 
 							<div class="col-xs-5">
@@ -204,6 +192,10 @@
 												{!! Form::submit('Add Comment', ['class' => 'btn btn-primary form-control']) !!}
 											</div>
 										{!! Form::close() !!}
+									</div>
+								@else
+									<div class="col-xs-12 comment-block text-center">
+										<a href="{{ route('auth.login') }}"><h4>Please log in to post a comment</h4></a>
 									</div>
 								@endif
 							</div>
