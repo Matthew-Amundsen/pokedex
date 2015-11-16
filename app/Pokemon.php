@@ -14,6 +14,8 @@ class Pokemon extends Model
 
 	protected $searchableColumns = [
 		'name' => 10,
+		'type_1' => 8,
+		'type_2' => 5,
 	];
 
 	protected $table = "pokemon";
