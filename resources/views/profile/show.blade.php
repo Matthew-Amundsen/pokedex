@@ -16,7 +16,7 @@
 					<div class="col-sm-6 col-md-4 text-center">
 						<a href="{{ route('pokemon.show', $pokemon->id) }}">
 							<img src="..\..\images\pokemon\{{ $pokemon->id }}.png" width="200">
-							<h3>{{ $pokemon->id}} {{ $pokemon->name}}</h3>
+							<h3>{{ $pokemon->id }} {{ $pokemon->name }}</h3>
 						</a>
 						@if(Auth::check() && ($user->id === Auth::user()->id))
 							{!! Form::open(['route' => ['profile.removePokemon'], 'method' => 'POST']) !!}

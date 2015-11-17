@@ -40,6 +40,7 @@ class PokemonController extends Controller
 
 		// dd($pokemonData);
 		// dd($pokemonData->types);
+		sort($pokemonData->moves);
 
 		$pokemon = Pokemon::findOrFail($id);
 		$comments = Comment::where('pokemon_id', $id)->get();

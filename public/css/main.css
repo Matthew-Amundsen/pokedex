@@ -55,6 +55,18 @@ body {
 	margin-top: 8px;
 }
 
+.camera-lens {
+	padding: 4px 10px 4px 0;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #fff;
+}
+
 /* ==========================================================================
 	Heading / Navigation
 	========================================================================== */
@@ -297,7 +309,11 @@ p.comment {
 
 	/* Comment entry block */
 .comment-block {
-	margin-left: 20px;
+	margin: 0 20px;
+}
+
+.btn-primary, .btn-danger {
+	margin-top: 10px;
 }
 
 /* ==========================================================================
@@ -443,8 +459,8 @@ p.comment {
 	border: #ddd solid 1px;
 }
 
-
-
-
+.pokeball {
+	background-color: red;
+}
 
 

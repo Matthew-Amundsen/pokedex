@@ -12,103 +12,103 @@
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a></li>
 						<li role="presentation"><a href="#moves" aria-controls="moves" role="tab" data-toggle="tab">Moves</a></li>
-						<li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a></li>
+						<li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments <span class="badge">{{ count($comments) }}</span></a></li>
 					</ul>
 
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="data">
-							<div class="col-xs-12 col-sm-6">
-								<img src="..\images\pokemon\{{ $pokemon->id }}.png">
-							</div>
-							<div class="col-xs-12 col-sm-6">
-								<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
-								@if(count($pokemonData->types) > 1)
-									<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
-								@endif
-								
-								<div class="pokemon-stats">
-									<div class="stat-row">
-										<p class="stat-detail">HP:</p>
-										<p class="stat-info">{{ $pokemonData->hp }}</p>
-										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->hp / 1.5}}px">&nbsp;</span></p>
-									</div>
-									<div class="stat-row">
-										<p class="stat-detail">Attack:</p>
-										<p class="stat-info">{{ $pokemonData->attack }}</p>
-										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->attack / 1.5}}px">&nbsp;</span></p>
-									</div>
-									<div class="stat-row">
-										<p class="stat-detail">Defense:</p>
-										<p class="stat-info">{{ $pokemonData->defense }}</p>
-										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->defense / 1.5}}px">&nbsp;</span></p>
-									</div>
-									<div class="stat-row">
-										<p class="stat-detail">Sp.Atk:</p>
-										<p class="stat-info">{{ $pokemonData->sp_atk }}</p>
-										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->sp_atk / 1.5}}px">&nbsp;</span></p>
-									</div>
-									<div class="stat-row">
-										<p class="stat-detail">Sp.Def:</p>
-										<p class="stat-info">{{ $pokemonData->sp_def }}</p>
-										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->sp_def / 1.5}}px">&nbsp;</span></p>
-									</div>
-									<div class="stat-row">
-										<p class="stat-detail">Speed:</p>
-										<p class="stat-info">{{ $pokemonData->speed }}</p>
-										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->speed / 1.5}}px">&nbsp;</span></p>
+							<div class="row">
+								<div class="col-sm-6">
+									<img src="..\images\pokemon\{{ $pokemon->id }}.png">
+								</div>
+								<div class="col-sm-6">
+									<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
+									@if(count($pokemonData->types) > 1)
+										<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
+									@endif
+									
+									<div class="pokemon-stats">
+										<div class="stat-row">
+											<p class="stat-detail">HP:</p>
+											<p class="stat-info">{{ $pokemonData->hp }}</p>
+											<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->hp / 1.5}}px">&nbsp;</span></p>
+										</div>
+										<div class="stat-row">
+											<p class="stat-detail">Attack:</p>
+											<p class="stat-info">{{ $pokemonData->attack }}</p>
+											<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->attack / 1.5}}px">&nbsp;</span></p>
+										</div>
+										<div class="stat-row">
+											<p class="stat-detail">Defense:</p>
+											<p class="stat-info">{{ $pokemonData->defense }}</p>
+											<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->defense / 1.5}}px">&nbsp;</span></p>
+										</div>
+										<div class="stat-row">
+											<p class="stat-detail">Sp.Atk:</p>
+											<p class="stat-info">{{ $pokemonData->sp_atk }}</p>
+											<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->sp_atk / 1.5}}px">&nbsp;</span></p>
+										</div>
+										<div class="stat-row">
+											<p class="stat-detail">Sp.Def:</p>
+											<p class="stat-info">{{ $pokemonData->sp_def }}</p>
+											<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->sp_def / 1.5}}px">&nbsp;</span></p>
+										</div>
+										<div class="stat-row">
+											<p class="stat-detail">Speed:</p>
+											<p class="stat-info">{{ $pokemonData->speed }}</p>
+											<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->speed / 1.5}}px">&nbsp;</span></p>
+										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-xs-5">
+							<div class="row">
 								@if(Auth::check())
-								<?php $action = '<img src="../images/pokeball.png">'; ?>
-									<div class="row">
-										<div class="col-xs-6">
-											{{-- Button to add Pokemon to slot 1 --}}
-											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php
-													$slot_number = 1;
-													$action_words = 'Add ' . $pokemon->name . ' to slot '
-												?>
-												@include('partials.slot-form')
-											{!! Form::close() !!}
-										</div>
-										<div class="col-xs-6">
-											{{-- Button to add Pokemon to slot 2 --}}
-											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php $slot_number = 2 ?>
-												@include('partials.slot-form')
-											{!! Form::close() !!}
-										</div>
-										<div class="col-xs-6">
-											{{-- Button to add Pokemon to slot 3 --}}
-											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php $slot_number = 3 ?>
-												@include('partials.slot-form')
-											{!! Form::close() !!}
-										</div>
-										<div class="col-xs-6">
-											{{-- Button to add Pokemon to slot 4 --}}
-											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php $slot_number = 4 ?>
-												@include('partials.slot-form')
-											{!! Form::close() !!}
-										</div>
-										<div class="col-xs-6">
-											{{-- Button to add Pokemon to slot 5 --}}
-											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php $slot_number = 5 ?>
-												@include('partials.slot-form')
-											{!! Form::close() !!}
-										</div>
-										<div class="col-xs-6">
-											{{-- Button to add Pokemon to slot 6 --}}
-											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-												<?php $slot_number = 6 ?>
-												@include('partials.slot-form')
-											{!! Form::close() !!}
-										</div>
+									<?php 
+										$action = '<img src="../images/pokeball.png">';
+										$action_words = 'Add ' . $pokemon->name . ' to slot ';
+									?>
+									<div class="col-xs-6">
+										{{-- Button to add Pokemon to slot 1 --}}
+										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+											<?php $slot_number = 1 ?>
+											@include('partials.slot-form')
+										{!! Form::close() !!}
+									</div>
+									<div class="col-xs-6">
+										{{-- Button to add Pokemon to slot 2 --}}
+										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+											<?php $slot_number = 2 ?>
+											@include('partials.slot-form')
+										{!! Form::close() !!}
+									</div>
+									<div class="col-xs-6">
+										{{-- Button to add Pokemon to slot 3 --}}
+										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+											<?php $slot_number = 3 ?>
+											@include('partials.slot-form')
+										{!! Form::close() !!}
+									</div>
+									<div class="col-xs-6">
+										{{-- Button to add Pokemon to slot 4 --}}
+										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+											<?php $slot_number = 4 ?>
+											@include('partials.slot-form')
+										{!! Form::close() !!}
+									</div>
+									<div class="col-xs-6">
+										{{-- Button to add Pokemon to slot 5 --}}
+										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+											<?php $slot_number = 5 ?>
+											@include('partials.slot-form')
+										{!! Form::close() !!}
+									</div>
+									<div class="col-xs-6">
+										{{-- Button to add Pokemon to slot 6 --}}
+										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
+											<?php $slot_number = 6 ?>
+											@include('partials.slot-form')
+										{!! Form::close() !!}
 									</div>
 								@endif
 							</div>
@@ -191,23 +191,17 @@
 							</div>
 							<div>
 								@if(Auth::check())
-									<div class="col-xs-12 comment-block">
+									<div class="comment-block">
 										<h4>Comment on {{ $pokemon->name }}</h4>
-										
 										{!! Form::open(['route' => ['pokemon.comments.store', $pokemon->id], 'class' => 'form-horizontal', 'method' => 'POST']) !!}
-											<div class="form-group">
-												{!! Form::hidden('pokemon_id', $pokemon->id) !!}
-												{!! Form::label('Comment:') !!}
-												{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
-											</div>
-
-											<div class="form-group">
-												{!! Form::submit('Add Comment', ['class' => 'btn btn-primary form-control']) !!}
-											</div>
+											{!! Form::hidden('pokemon_id', $pokemon->id) !!}
+											{!! Form::label('Comment:') !!}
+											{!! Form::textarea('comment', $newComment->comment, ['class' => 'form-control']) !!}
+											{!! Form::submit('Add Comment', ['class' => 'btn btn-primary form-control']) !!}
 										{!! Form::close() !!}
 									</div>
 								@else
-									<div class="col-xs-12 comment-block text-center">
+									<div class="comment-block text-center">
 										<a href="{{ route('auth.login') }}"><h4>Please log in to post a comment</h4></a>
 									</div>
 								@endif
