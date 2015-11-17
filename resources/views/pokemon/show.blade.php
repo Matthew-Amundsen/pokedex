@@ -26,25 +26,38 @@
 									<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
 								@endif
 								
-								<div class="row">
-									<p class="stat-detail">HP:</p><p class="stat-info">{{ $pokemonData->hp }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</span></p>
+								<div class="pokemon-stats">
+									<div class="stat-row">
+										<p class="stat-detail">HP:</p>
+										<p class="stat-info">{{ $pokemonData->hp }}</p>
+										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->hp / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->hp / 1.5}}px">&nbsp;</span></p>
+									</div>
+									<div class="stat-row">
+										<p class="stat-detail">Attack:</p>
+										<p class="stat-info">{{ $pokemonData->attack }}</p>
+										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->attack / 1.5}}px">&nbsp;</span></p>
+									</div>
+									<div class="stat-row">
+										<p class="stat-detail">Defense:</p>
+										<p class="stat-info">{{ $pokemonData->defense }}</p>
+										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->defense / 1.5}}px">&nbsp;</span></p>
+									</div>
+									<div class="stat-row">
+										<p class="stat-detail">Sp.Atk:</p>
+										<p class="stat-info">{{ $pokemonData->sp_atk }}</p>
+										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->sp_atk / 1.5}}px">&nbsp;</span></p>
+									</div>
+									<div class="stat-row">
+										<p class="stat-detail">Sp.Def:</p>
+										<p class="stat-info">{{ $pokemonData->sp_def }}</p>
+										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->sp_def / 1.5}}px">&nbsp;</span></p>
+									</div>
+									<div class="stat-row">
+										<p class="stat-detail">Speed:</p>
+										<p class="stat-info">{{ $pokemonData->speed }}</p>
+										<p class="stat"><span class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</span><span class="stat-bar-2" style="width: {{ 170 - $pokemonData->speed / 1.5}}px">&nbsp;</span></p>
+									</div>
 								</div>
-								<div class="row">
-									<p class="stat-detail">Attack:</p><p class="stat-info">{{ $pokemonData->attack }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->attack / 1.5}}px">&nbsp;</span></p>
-								</div>
-								<div class="row">
-									<p class="stat-detail">Defense:</p><p class="stat-info">{{ $pokemonData->defense }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->defense / 1.5}}px">&nbsp;</span></p>
-								</div>
-								<div class="row">
-									<p class="stat-detail">Sp.Atk:</p><p class="stat-info">{{ $pokemonData->sp_atk }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->sp_atk / 1.5}}px">&nbsp;</span></p>
-								</div>
-								<div class="row">
-									<p class="stat-detail">Sp.Def</p><p class="stat-info">{{ $pokemonData->sp_def }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->sp_def / 1.5}}px">&nbsp;</span></p>
-								</div>
-								<div class="row">
-									<p class="stat-detail">Speed</p><p class="stat-info">{{ $pokemonData->speed }}</p><p class="stat text-left"><span class="stat-bar" style="width: {{ $pokemonData->speed / 1.5}}px">&nbsp;</span></p>
-								</div>
-
 							</div>
 
 							<div class="col-xs-5">

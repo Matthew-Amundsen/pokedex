@@ -240,8 +240,23 @@ footer a:active {
 }
 
 /* ==========================================================================
-	Pokemon show - Moves tab
+	Moves tables - Moves tab
 	========================================================================== */
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+	background-color: #eeeeee;
+	color: #363636;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td {
+	background-color: #cccccc;
+	color: #363636;
+}
+
+.table-striped th {
+	background-color: #363636;
+	color: #fff;
+}
 
 /* ==========================================================================
 	Pokemon show - Comments tab
@@ -374,46 +389,6 @@ p.comment {
 	background-color: #f9aeff;
 }
 
-.stat-bar {
-	content: "";
-	background-color: #16d600;
-	display: inline-block;
-}
-
-.stat-info  {
-	display: inline-block;
-	width: 40px;
-}
-
-.stat-detail {
-	display: inline-block;
-	width: 40px;
-}
-
-.stat {
-	display: inline-block;
-	max-width: 255px;
-}
-
-/* ==========================================================================
-	Moves tables
-	========================================================================== */
-
-.table-striped > tbody > tr:nth-child(odd) > td {
-	background-color: #eeeeee;
-	color: #363636;
-}
-
-.table-striped > tbody > tr:nth-child(even) > td {
-	background-color: #cccccc;
-	color: #363636;
-}
-
-.table-striped th {
-	background-color: #363636;
-	color: #fff;
-}
-
 /* ==========================================================================
 	Flash message
 	========================================================================== */
@@ -425,19 +400,48 @@ p.comment {
 }
 
 /* ==========================================================================
-	Comments
+	Stat bars
 	========================================================================== */
 
+.stat-bar {
+	content: "";
+	background-color: #16d600;
+	display: inline-block;
+}
 
+.stat-bar-2 {
+	content: "";
+	background-color: #d5d5d5;
+	display: inline-block;
+}
 
+.stat-info  {
+	display: inline-block;
+	width: 40px;
+	text-align: center;
+}
 
+.stat-detail {
+	display: inline-block;
+	width: 60px;
+	text-align: right;
+}
 
+.stat {
+	display: inline-block;
+	max-width: 255px;
+}
 
+.stat-row {
+	text-align: left;
+}
 
-
-
-
-
+.pokemon-stats {
+	padding-top: 10px;
+	margin: 0 auto;
+	width: 285px;
+	border: #ddd solid 1px;
+}
 
 
 
