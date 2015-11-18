@@ -55,17 +55,92 @@ body {
 	margin-top: 8px;
 }
 
+	/* Pokedex camera Lens */
 .camera-lens {
 	padding: 4px 10px 4px 0;
 }
 
-.arrow-down {
-	width: 0; 
-	height: 0; 
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	border-top: 20px solid #fff;
+@media (max-width: 767px) {
+	.camera-lens {
+		padding: 8px 10px 4px 10px;
+	}
 }
+
+/* ==========================================================================
+	Input fields
+	========================================================================== */
+
+.form-control {
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+	/* Flatening and squaring inputs */
+.btn {
+	border-radius: 0;
+	border: none;
+	background-image: none;
+	background-repeat: none;
+}
+
+.btn:hover {
+	border-radius: 0;
+	border: none;
+	background-image: none;
+	background-repeat: none;
+	text-shadow: none;
+}
+
+.btn-primary {
+	background-color: #58bad2;
+}
+
+.btn-primary:hover {
+	background-color: #4dafcb;
+}
+
+.btn-danger {
+	background-color: #c44330;
+}
+
+.btn-danger:hover {
+	background-color: #a13a2f;
+}
+
+.btn-edit {
+	background-color: #eeeeee;
+}
+
+.btn-edit:hover {
+	
+}
+
+.btn-search {
+	background-color: #363636;
+	border: 1px solid #363636;
+
+	width: 20px;
+}
+
+.btn-search:hover .btn-search:before {
+	background-color: #171717;
+	border: 1px solid #171717;
+}
+
+.btn-search:before {
+	content: "";
+	position: relative;
+	top: -26px;
+	left: -46px;
+
+	z-index: 100;
+
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 0 35px 35px;
+	border-color: transparent transparent #363636 transparent;
+}
+
 
 /* ==========================================================================
 	Heading / Navigation
@@ -76,13 +151,13 @@ body {
 	margin-top: 50px;
 }
 
-   /* verticaly centers the search bar */
-nav.input-group {
-	margin-top: 8px;
+.navbar-nav {
+	margin-right: 10px;
 }
 
 .navbar {
 	background-color: #c44330;
+	border: 0;
 }
 
 .navbar a:link {
@@ -99,6 +174,12 @@ nav.input-group {
 
 .navbar a:active {
 	color: #fff;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+	text-decoration: none;
+	background-color: #eee;
 }
 
 	/* Dropdown button for mobile - Colors */
@@ -363,6 +444,7 @@ p.comment {
 
 .electric {
 	background-color: #fde53e;
+	color: #363636;
 }
 
 .ground {

@@ -27,25 +27,25 @@
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
+						{{-- <span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="triangle-down"></span>
+						<span class="icon-bar"></span> --}}
+						<img src="../../images/triangle.png">
 					</button>
-					<img class="camera-lens" src="../../images/camera-lens.png">
+					<img class="camera-lens" src="../../../../images/camera-lens.png">
 				</div>
 				
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav">
-						<li><a href="{{ route('pokemon.index') }}">Pokemon</a></li>
+						<li><a href="{{ route('pokemon.index') }}">Pokedex</a></li>
 					</ul>
 
 					{!! Form::open(['route' => 'search', 'method' => 'get', 'id' => 'search-bar']) !!}
 						<div class="input-group">
 							{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
 							<span class="input-group-btn">
-							{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-default', 'type' => 'submit']) !!}
+							{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-search', 'type' => 'submit']) !!}
 							</span>
 						</div>
 					{!! Form::close() !!}
@@ -83,7 +83,7 @@
 		<footer>
 			<div class="container-fluid">
 				<div class="row footer-row">
-					<p class="footer-link"><a href="https://github.com/Matthew-Amundsen" target="_blank">View on Github<img src="../../images/GitHub-Mark-Light-32px.png"></a><span class="footer-triangle"></span></p>
+					<p class="footer-link"><a href="https://github.com/Matthew-Amundsen/pokedex" target="_blank">View on Github<img src="../../../../images/GitHub-Mark-Light-32px.png"></a><span class="footer-triangle"></span></p>
 					<p class="footer-link"><a href="http://pokeapi.co/" target="_blank">Data provided by Pokeapi</a><span class="footer-triangle"></span></p>
 					<p class="footer-link"><a href="https://github.com/veekun/pokedex" target="_blank">Data provided by Veekun</a><span class="footer-triangle"></span></p>
 				</div>
