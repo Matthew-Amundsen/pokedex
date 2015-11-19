@@ -9,8 +9,9 @@
 	@if($showRemove && Auth::check() && ($user->id === Auth::user()->id))
 		{!! Form::open(['route' => ['profile.removePokemon'], 'method' => 'POST']) !!}
 			<?php 
-				$slot_number = $i;
+				$slot_number = 1;
 				$action_words = 'Remove ' . $pokemon->name . ' from slot ';
+				$action = "<img src='../../../../images/pokeball.png'>$action_words $slot_number";
 			?>
 			<div class="btn btn-default ">
 				{!! Form::hidden('slot', $slot_number) !!}
