@@ -64,52 +64,20 @@
 
 							<div class="row">
 								@if(Auth::check())
-									<?php 
-										$action = '<img src="../images/pokeball.png">';
-										$action_words = 'Add ' . $pokemon->name . ' to slot ';
-									?>
-									<div class="col-xs-6">
-										{{-- Button to add Pokemon to slot 1 --}}
+									@for($i = 1; $i <= 6; $i += 1)
+										<?php 
+											$slot_number = $i;
+											$action_words = 'Add ' . $pokemon->name . ' to slot ';
+											$action = "<img src='../../../../images/pokeball.png'>$action_words $slot_number";
+										?>
 										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<?php $slot_number = 1 ?>
-											@include('partials.slot-form')
+											<div class="btn btn-default ">
+												{!! Form::hidden('slot', $slot_number) !!}
+												{!! Form::hidden('id', $pokemon->id) !!}	
+												{!! Form::button($action, ['class' => 'btn-block', 'type' => 'submit']) !!}
+											</div>
 										{!! Form::close() !!}
-									</div>
-									<div class="col-xs-6">
-										{{-- Button to add Pokemon to slot 2 --}}
-										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<?php $slot_number = 2 ?>
-											@include('partials.slot-form')
-										{!! Form::close() !!}
-									</div>
-									<div class="col-xs-6">
-										{{-- Button to add Pokemon to slot 3 --}}
-										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<?php $slot_number = 3 ?>
-											@include('partials.slot-form')
-										{!! Form::close() !!}
-									</div>
-									<div class="col-xs-6">
-										{{-- Button to add Pokemon to slot 4 --}}
-										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<?php $slot_number = 4 ?>
-											@include('partials.slot-form')
-										{!! Form::close() !!}
-									</div>
-									<div class="col-xs-6">
-										{{-- Button to add Pokemon to slot 5 --}}
-										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<?php $slot_number = 5 ?>
-											@include('partials.slot-form')
-										{!! Form::close() !!}
-									</div>
-									<div class="col-xs-6">
-										{{-- Button to add Pokemon to slot 6 --}}
-										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<?php $slot_number = 6 ?>
-											@include('partials.slot-form')
-										{!! Form::close() !!}
-									</div>
+									@endfor
 								@endif
 							</div>
 						</div>

@@ -27,7 +27,8 @@ class ProfileController extends Controller
 	public function show($id)
 	{
 		$user = User::findOrFail($id);
-		return view('profile.show', compact('user'));
+		$allPokemon = User::getPokemon($user->id);
+		return view('profile.show', compact('user', 'allPokemon'));
 	}
 
 	/**
@@ -69,7 +70,6 @@ class ProfileController extends Controller
 		$pokemon = $request->input('id');
 
 		User::addPokemon($user, $slot, $pokemon);
-		// dd($user, $slot, $pokemon);
 		return redirect()->route('pokemon.show', [$pokemon])->withSuccess('Pokemon was added to slot number ' . $slot);
 	}
 
@@ -80,7 +80,6 @@ class ProfileController extends Controller
 		$pokemon = null;
 
 		User::addPokemon($user, $slot, $pokemon);
-		// dd($user, $slot, $pokemon);
 		return redirect()->route('profile.show', [$user])->withSuccess('Pokemon was removed from slot number ' . $slot);;
 	}
 }

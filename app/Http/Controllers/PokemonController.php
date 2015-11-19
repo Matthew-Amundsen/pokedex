@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Pokemon;
 use App\PokemonDataFetcher;
 use App\Comment;
@@ -46,7 +47,7 @@ class PokemonController extends Controller
 		$comments = Comment::where('pokemon_id', $id)->get();
 			
 		$newComment = new Comment;
-			
+		
 		return view('pokemon.show', compact('pokemon', 'comments', 'newComment', 'pokemonData'));
 	}
 

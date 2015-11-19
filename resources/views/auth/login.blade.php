@@ -29,7 +29,7 @@
 			<button type="submit" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-ok"></span> Log in</button>
 		</div>
 		<div class="form-group">
-			<p class="pull-right"><a href="{{ route('auth.register') }}">Register</a></p>
+			<p><a href="{{ route('auth.register') }}">Register</a></p>
 		</div>
 		{!! Form::close() !!}
 	</div>

@@ -12,6 +12,8 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
+		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -27,9 +29,6 @@
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
-						{{-- <span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span> --}}
 						<img src="../../images/triangle.png">
 					</button>
 					<img class="camera-lens" src="../../../../images/camera-lens.png">
@@ -38,13 +37,14 @@
 				<div id="navbar" class="navbar-collapse collapse">
 
 					<ul class="nav navbar-nav">
-						<li><a href="{{ route('pokemon.index') }}">Pokedex</a></li>
+						<li><a class="pokedex-word" href="{{ route('pokemon.index') }}">Pokedex</a></li>
 					</ul>
 
 					{!! Form::open(['route' => 'search', 'method' => 'get', 'id' => 'search-bar']) !!}
 						<div class="input-group">
 							{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
 							<span class="input-group-btn">
+							<span class="search-triangle"></span>
 							{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-search', 'type' => 'submit']) !!}
 							</span>
 						</div>
