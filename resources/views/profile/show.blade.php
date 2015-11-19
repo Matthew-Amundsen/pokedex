@@ -8,9 +8,9 @@
 		</div>
 		<div class="row text-center">
 			@foreach ($allPokemon as $pokemon) 
-			{
-				{{$pokemon->name}}
-			}
+				<a href="{{ route('pokemon.show', $pokemon->id) }}">
+					@include('partials.pokemon-preview', ['showRemove' => false])
+				</a>
 			@endforeach
 		</div>
 	</div>
