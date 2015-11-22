@@ -79,7 +79,7 @@ class User extends Model implements AuthenticatableContract,
 				$pokemon = Pokemon::findOrFail($currentUser->{"team_slot_" . $i});
 			}
 			else {
-				$pokemon = Pokemon::findOrFail(1);
+				$pokemon = null;
 			}
 			array_push($allPokemon, $pokemon);
 		}

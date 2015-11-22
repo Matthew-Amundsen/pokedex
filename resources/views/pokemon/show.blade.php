@@ -19,7 +19,7 @@
 						<div role="tabpanel" class="tab-pane active" id="data">
 							<div class="row">
 								<div class="col-sm-6">
-									<img src="..\images\pokemon\{{ $pokemon->id }}.png">
+									<img src="{{asset('/images/pokemon/' . $pokemon->id . '.png')}}">
 								</div>
 								<div class="col-sm-6">
 									<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
@@ -63,22 +63,28 @@
 							</div>
 
 							<div class="row">
-								@if(Auth::check())
-									@for($i = 1; $i <= 6; $i += 1)
-										<?php 
-											$slot_number = $i;
-											$action_words = 'Add ' . $pokemon->name . ' to slot ';
-											$action = "<img src='../../../../images/pokeball.png'>$action_words $slot_number";
-										?>
-										{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
-											<div class="btn btn-default ">
+								<div class="col-sm-6">
+									@if(Auth::check())
+										@for($i = 1; $i <= 6; $i += 1)
+											<?php 
+												$slot_number = $i;
+												$action_words = ' Add ' . $pokemon->name . ' to slot ';
+												$action = "<img class='svgPokeball' src='". asset('/images/pokeball.svg') . "'> $action_words " . $slot_number;									
+											?>
+											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
 												{!! Form::hidden('slot', $slot_number) !!}
 												{!! Form::hidden('id', $pokemon->id) !!}	
-												{!! Form::button($action, ['class' => 'btn-block', 'type' => 'submit']) !!}
-											</div>
-										{!! Form::close() !!}
-									@endfor
-								@endif
+												{!! Form::button($action, ['class' => 'btn btn-addRemove', 'type' => 'submit']) !!}
+											{!! Form::close() !!}
+										@endfor
+									@endif
+								</div>
+								<div class="col-sm-6">
+									<h3>Abilities</h3>
+									@foreach($pokemonData->abilities as $ability)
+										<p>{{ ucfirst($ability->name) }}</p>
+									@endforeach
+								</div>
 							</div>
 						</div>
 

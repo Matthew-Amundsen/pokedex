@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title></title>
+		<title>Pokedex</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,9 +29,9 @@
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
-						<img src="../../images/triangle.png">
+						<img src="{{asset('/images/triangle.png')}}">
 					</button>
-					<img class="camera-lens" src="../../../../images/camera-lens.png">
+					<img class="camera-lens" src="{{asset('/images/camera-lens.png')}}">
 				</div>
 				
 				<div id="navbar" class="navbar-collapse collapse">
@@ -44,7 +44,6 @@
 						<div class="input-group">
 							{!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
 							<span class="input-group-btn">
-							<span class="search-triangle"></span>
 							{!! Form::button('<span class="glyphicon glyphicon-search"></span>', ['class' => 'btn btn-search', 'type' => 'submit']) !!}
 							</span>
 						</div>

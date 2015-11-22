@@ -153,9 +153,22 @@ body {
 	margin: 0 20px;
 }
 
-.btn-block {
+.btn-addRemove {
 	width: 250px;
-	margin: 0 auto;
+	padding: 5px 0;
+	margin: 10px auto 0 auto;
+	color: #363636;
+	background-color: #eeeeee;
+	border: solid 1px #575757;
+}
+
+.btn-addRemove:hover {
+	color: #47BBD3;
+	border: solid 1px #47BBD3;
+}
+
+.svgPokeball {
+	width: 26px;
 }
 
 /* ==========================================================================
@@ -503,6 +516,20 @@ p.comment {
 	padding: 10px;
 }
 
+.alert-success {
+	border-radius: 0;
+	border: none;
+	background-image: none;
+	background-repeat: none;
+	background-color: #8BD5E4;
+	text-shadow: none;
+	color: #575757;
+}
+
+.alert-success button.close {
+	text-shadow: none;
+}
+
 /* ==========================================================================
 	Stat bars
 	========================================================================== */
@@ -551,4 +578,5 @@ p.comment {
 	background-color: red;
 }
 
+/*<img class="camera-lens" src="{{asset('/images/camera-lens.png')}}">*/
 
