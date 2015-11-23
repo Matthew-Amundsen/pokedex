@@ -39,8 +39,6 @@ class PokemonController extends Controller
 			return $fetcher->fetch();
 		});
 
-		// dd($pokemonData);
-		// dd($pokemonData->types);
 		sort($pokemonData->moves);
 
 		$pokemon = Pokemon::findOrFail($id);
@@ -55,17 +53,7 @@ class PokemonController extends Controller
 	{
 		$pokemon = Pokemon::all();
 		$result = Pokemon::search($request->input('search'))->get(); 
-		
-		// return $request->input('search');
+
 		return view('pokemon.search', compact('result'));
 	}
-
-	// private function getPokemonMetadata($id) {
-	// 	$client = new GuzzleHttp\Client();
-	// 	$pokemonUrl = "http://pokeapi.co/api/v1/pokemon/" . $id . "/";
-	// 	$res = $client->get($pokemonUrl);
-	// 	$json = $res->getBody();
-	// 	$pokemonData = json_decode($json);
-	// 	return $pokemonData;
-	// }
 }

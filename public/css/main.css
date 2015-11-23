@@ -67,6 +67,7 @@ body {
 @media (max-width: 767px) {
 	.camera-lens {
 		padding: 8px 10px 4px 10px;
+		margin-top: -20px;
 	}
 }
 
@@ -182,6 +183,14 @@ body {
 
 .navbar-nav {
 	margin-right: 10px;
+}
+
+.visible-xs-inline-block li a{
+	height: 50px;
+	margin-left: 10px;
+	font-size: 30px;
+	line-height: 30px;
+
 }
 
 .navbar {

@@ -32,6 +32,9 @@
 						<img src="{{asset('/images/triangle.png')}}">
 					</button>
 					<img class="camera-lens" src="{{asset('/images/camera-lens.png')}}">
+					<ul class="nav navbar-nav visible-xs-inline-block">
+						<li><a class="pokedex-word" href="{{ route('pokemon.index') }}">Pokedex</a></li>
+					</ul>
 				</div>
 				
 				<div id="navbar" class="navbar-collapse collapse">
