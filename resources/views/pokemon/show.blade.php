@@ -22,11 +22,12 @@
 									<img src="{{asset('/images/pokemon/' . $pokemon->id . '.png')}}">
 								</div>
 								<div class="col-sm-6">
-									<p class="type-block {{ $pokemonData->types[0]->name }}">{{ ucfirst($pokemonData->types[0]->name) }}</p>
-									@if(count($pokemonData->types) > 1)
-										<p class="type-block {{ $pokemonData->types[1]->name }}">{{ ucfirst($pokemonData->types[1]->name) }}</p>
-									@endif
-									
+									@foreach($pokemonData->types as $type)
+										<a href="{{ route('search', 'search=' . $type->name) }}">
+											<p class="type-block {{ $type->name }}">{{ ucfirst($type->name) }}</p>
+										</a>
+									@endforeach
+
 									<div class="pokemon-stats">
 										<div class="stat-row">
 											<p class="stat-detail">HP:</p>
@@ -64,6 +65,12 @@
 
 							<div class="row">
 								<div class="col-sm-6">
+									<h3>Abilities</h3>
+									@foreach($pokemonData->abilities as $ability)
+										<p>{{ ucfirst($ability->name) }}</p>
+									@endforeach
+								</div>
+								<div class="col-sm-6">
 									@if(Auth::check())
 										@for($i = 1; $i <= 6; $i += 1)
 											<?php 
@@ -78,12 +85,6 @@
 											{!! Form::close() !!}
 										@endfor
 									@endif
-								</div>
-								<div class="col-sm-6">
-									<h3>Abilities</h3>
-									@foreach($pokemonData->abilities as $ability)
-										<p>{{ ucfirst($ability->name) }}</p>
-									@endforeach
 								</div>
 							</div>
 						</div>

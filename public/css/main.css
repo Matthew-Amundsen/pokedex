@@ -55,7 +55,7 @@ body {
 
 #search-bar {
 	display: inline-block;
-	max-width: 250px;
+	max-width: 220px;
 	margin-top: 8px;
 }
 
@@ -500,10 +500,12 @@ p.comment {
 
 .steel {
 	background-color: #c3c1da;
+	color: #363636;
 }
 
 .fairy {
 	background-color: #f9aeff;
+	color: #363636;
 }
 
 /* ==========================================================================
@@ -523,7 +525,7 @@ p.comment {
 	background-repeat: none;
 	background-color: #8BD5E4;
 	text-shadow: none;
-	color: #575757;
+	color: #fff;
 }
 
 .alert-success button.close {
@@ -578,5 +580,5 @@ p.comment {
 	background-color: red;
 }
 
-/*<img class="camera-lens" src="{{asset('/images/camera-lens.png')}}">*/
+
 
