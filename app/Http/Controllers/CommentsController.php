@@ -23,6 +23,10 @@ class CommentsController extends Controller
 	 */
 	public function store(Request $request, $pokemon_id)
 	{
+		$this->validate($request, [
+			'comment' => 'required|min:10|max:1000',
+		]);
+
 		$user = $request->user();
 		$pokemon = Pokemon::findOrFail($pokemon_id);
 		$comment = new Comment($request->all());
@@ -67,11 +71,18 @@ class CommentsController extends Controller
 	 */
 	public function update(Request $request, $pokemon_id, $id)
 	{
+		$this->validate($request, [
+			'comment' => 'required|min:10|max:1000',
+		]);
+
 		$user = $request->user();
 		$pokemon = Pokemon::findOrFail($pokemon_id);
 		$comment = Comment::findOrFail($id);
-		$comment->fill($request->all());
-		$comment->save();
+
+		if($user->id == $comment->user_id || $user->role == "admin"){
+			$comment->fill($request->all());
+			$comment->save();
+		}
 
 		return redirect()->route('pokemon.show', $comment->pokemon_id);
 	}
@@ -82,11 +93,16 @@ class CommentsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($pokemon_id, $id)
+	public function destroy(Request $request, $pokemon_id, $id)
 	{
+		$user = $request->user();
+		
 		$comment = Comment::findOrFail($id);
 		$pokemon_id = $comment->pokemon_id;
-		$comment->delete();
+		
+		if($user->id == $comment->user_id || $user->role == "admin"){
+			$comment->delete();
+		}
 
 		return redirect()->route('pokemon.show', $pokemon_id);
 	}

@@ -158,7 +158,7 @@
 										<p class="comment">{{ $comment->comment }}</p>
 									</div>
 																				
-									@if(Auth::check() && Auth::user()->role === "admin")
+									@if(Auth::check() && (Auth::user()->id === $comment->user_id || Auth::user()->role === "admin"))
 										<a href="{{ route('pokemon.comments.edit', [$pokemon->id, $comment->id]) }}" class="btn btn-default btn-edit">Edit Comment</a>
 									@endif
 									<hr class="comment-hr">

@@ -18,7 +18,17 @@
         <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
     </head>
     <body>
-        <h2>Oh Snap, Something Broke</h2>
-        <a>Click here to get back to our home page</a>
+        <div class="container content-container">
+            <div class="row missing-no">
+                <img src="{{ asset('/images/missing-no.png') }}">
+            </div>
+            <div class="row missing-no">
+                <img src="{{ asset('/images/503-image.png') }}">
+            </div>
+            <div class="row missing-no">
+                <h2>Oh no! Something went wrong</h2>
+                <a class="btn btn-primary" href="{{ route('pokemon.index') }}">Click here to get back to our home page</a>
+            </div>
+        </div>
     </body>
 </html>

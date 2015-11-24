@@ -18,12 +18,16 @@
 		<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<h2>404</h2>
-				<h2>MissingNo appeared!</h2>
-				<a class="btn btn-primary">Click here to get back to our home page</a>
-				<img src="{{asset('/images/MissingNo.png')}}">
+		<div class="container content-container">
+			<div class="row missing-no">
+				<img src="{{ asset('/images/missing-no.png') }}">
+			</div>
+			<div class="row missing-no">
+				<img src="{{ asset('/images/404-image.png') }}">
+			</div>
+			<div class="row missing-no">
+				<h2>Oh no! Something went wrong</h2>
+				<a class="btn btn-primary" href="{{ route('pokemon.index') }}">Click here to get back to our home page</a>
 			</div>
 		</div>
 	</body>
