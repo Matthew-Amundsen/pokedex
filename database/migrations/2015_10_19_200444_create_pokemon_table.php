@@ -17,7 +17,6 @@ class CreatePokemonTable extends Migration
             $table->string('name');
             $table->string('type_1');
             $table->string('type_2');
-            $table->string('color');
         });
     }
 

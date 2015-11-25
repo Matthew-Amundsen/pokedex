@@ -46,7 +46,9 @@ class PokemonController extends Controller
 			
 		$newComment = new Comment;
 		
-		return view('pokemon.show', compact('pokemon', 'comments', 'newComment', 'pokemonData'));
+		$user = Auth::user();
+
+		return view('pokemon.show', compact('pokemon', 'comments', 'newComment', 'pokemonData', 'user'));
 	}
 
 	public function search(Request $request)

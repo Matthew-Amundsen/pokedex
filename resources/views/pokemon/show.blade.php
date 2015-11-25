@@ -76,6 +76,12 @@
 											<?php 
 												$slot_number = $i;
 												$action_words = ' Add ' . $pokemon->name . ' to slot ';
+												if ($user) {
+													$current = $user->team_slot($slot_number)->first();
+													if ($current && $current->name) {
+														$action_words = " Replace " .$current->name . " in slot ";
+													}
+												}
 												$action = "<img class='svgPokeball' src='". asset('/images/pokeball.svg') . "'> $action_words " . $slot_number;									
 											?>
 											{!! Form::open(['route' => ['profile.addPokemon'], 'method' => 'POST']) !!}
